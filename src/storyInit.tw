@@ -1,2 +1,3 @@
 :: StoryInit
 /* define story variables here*/ 
+<<set $chapter to "00.">>
