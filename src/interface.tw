@@ -8,9 +8,9 @@
             <div id="saves">saves.</div>
             <div id="settings">settings.</div>
             <div id="restart">restart.</div>
-            <div id="stats01" data-passage="stats01.">stats01.</div>
-            <div id="stats02" data-passage="stats02.">stats02.</div>
-            <div id="return" data-passage="return."></div>
+            <div id="stat01" data-passage="stats01"></div>
+            <div id="stat02" data-passage="stats02"></div>
+            <div id="return" data-passage="return"></div>
         </div>
     </div>
 
@@ -43,9 +43,9 @@ $gamechapter
 <</link>>
 
 :: stats01
-<<link "stats01." "stats01_page">><</link>>
+<<link "stats01." "stats01_page">><<script>>console.log('stats01 clicked');<</script>><</link>>
 :: stats02
-<<link "stats02." "stats02_page">><</link>>
+<<link "stats02." "stats02_page">><<script>>console.log('stats02 clicked');<</script>><</link>>
 :: return
 <<if tags().includes('noreturn')>>\
     <<link "return." $return>><</link>>
