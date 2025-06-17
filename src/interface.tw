@@ -1,0 +1,52 @@
+:: StoryInterface
+<!-- https://www.motoslave.net/sugarcube/2/docs/#special-passage-storyinterface --> 
+<!-- take note of 'data-init-passage' and 'data-passage' --> 
+    <div id="header">
+        <div id="mobile-title" data-passage="mobile_title"></div>
+        <div id="header-links">
+            <div id="back">go back.</div>
+            <div id="saves">saves.</div>
+            <div id="settings">settings.</div>
+            <div id="restart">restart.</div>
+            <div id="stats01" data-passage="stats01.">stats01.</div>
+            <div id="stats02" data-passage="stats02.">stats02.</div>
+            <div id="return" data-passage="return."></div>
+        </div>
+    </div>
+
+    <!-- you must have one element with #id of 'passages' --> 
+    <div id="passages"></div>
+
+    <div id="footer">
+        <div id="footer-links"> 
+            <div id="mobile-back">go back.</div>
+            <div id="mobile-nav" data-passage="mobile_menu"></div>
+            <div id="return" data-passage="return"></div>
+        </div>
+    </div>
+
+
+:: mobile_title
+$gamechapter
+
+:: mobile_menu 
+<<link "navigation">>
+    <<dialog " menu.">>
+        <div id="navigation-links">\
+        <<link "saves">><<run UI.saves()>><</link>>\
+        <<link "settings">><<run UI.settings()>><</link>>\
+        <<link "restart">><<run UI.restart()>><</link>>\
+        <<link "stats01" "stats01_page">><<run Dialog.close()>><</link>>\
+        <<link "stats02" "stats02_page">><<run Dialog.close()>><</link>>\
+        </div>
+    <</dialog>>
+<</link>>
+
+:: stats01
+<<link "stats01." "stats01_page">><</link>>
+:: stats02
+<<link "stats02." "stats02_page">><</link>>
+:: return
+<<if tags().includes('noreturn')>>\
+    <<link "return." $return>><</link>>
+<</if>>

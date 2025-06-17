@@ -1,0 +1,11 @@
+:: StoryTitle 
+template v4
+
+:: StoryData
+{
+    "ifid": "4EB7C48B-7C6A-4C16-8E9E-6637AFE7BDCE",
+    "format": "SugarCube",
+    "format-version": "2.37.3",
+    "start": "StartMenu",
+    "zoom": 1
+}

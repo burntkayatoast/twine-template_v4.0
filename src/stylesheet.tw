@@ -1,0 +1,133 @@
+:: StoryStylesheet [stylesheet]
+/* FONT IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@font-face {
+  font-family: "Open Dyslexic";
+  src: url("https://dl.dropbox.com/s/z61rc6kecqzn2pm/OpenDyslexic-Regular.woff2")format("woff2"),
+	url("https://dl.dropbox.com/s/7utsi12557865ty/OpenDyslexic-Regular.woff")format("woff"),
+    url("https://dl.dropbox.com/s/1q7eh2yte04g3z5/OpenDyslexic-Regular.otf")format("otf");
+}
+
+/* ICON IMPORT */
+@import url('https://cdn.jsdelivr.net/npm/css.gg/icons/all.css');
+
+:root {
+  --bodyfont: "Inter", sans-serif;
+  --serif:  "Spectral", serif;
+  --openDyslexic: 'Open Dyslexic', sans-serif;
+  --darkbg: #1a1a1a;
+  --white: #d3d3d3;
+  --accent: #ab996d;
+}
+
+.openDyslexic body {
+  font-family: var(--openDyslexic);
+} 
+.serif body {
+  font-family: var(--serif);
+}
+
+body {
+  background-color: var(--white);
+  font-family: var(--bodyfont);
+  height: 100vh; 
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  box-sizing: border-box;
+  
+}
+
+#passages {
+  background-color: var(--white);
+  color: var(--darkbg);
+  font-size: 17px;
+  line-height: 1.6;
+  width: 65vw;
+  max-width: 1400px;
+  height: 50vh; 
+  margin: 0 auto;
+  margin-top: 5em;
+  padding: 1em;
+  box-sizing: border-box;
+  overflow-y: auto;
+  text-align: justify;
+  scrollbar-width: none;
+}
+
+#passages::-webkit-scrollbar {display: none;}
+#passages p, #passages div, #passages span {
+  text-align: justify;
+}
+
+/* links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/********************************
+        HEADER + NAV 
+********************************/
+#header {
+  background-color: var(--darkbg);
+  border-bottom: 2px solid var(--white);
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+}
+
+#header-links {
+  color: var(--white);
+  font-family: var(--serif);
+  padding: 15px 5px;
+  display: inline-flex;
+  font-size: 20px;
+  letter-spacing: 2px;
+  gap: 2em;
+}
+
+#header-links div {
+  color: var(--white);
+  position: relative;
+  cursor: pointer;
+  transition: color .3s ease-in-out;
+  padding: 4px;
+}
+
+#header-links div:after, #footer-links div:after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent);
+  transform-origin: bottom left;
+  transition: transform 0.4s ease-out;
+}
+#header-links div:hover {color:var(--accent);}
+#header-links div:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/********************************
+              FOOTER 
+********************************/
+#footer {
+  display: none;
+}
