@@ -2,16 +2,16 @@
 <!-- https://www.motoslave.net/sugarcube/2/docs/#special-passage-storyinterface --> 
 <!-- take note of 'data-init-passage' and 'data-passage' --> 
     <div id="header">
-        <div id="mobile-title" data-passage="mobile_title"></div>
+        <div id="game-title" data-passage="header-title"></div>
         <div id="header-links">
             <div id="back">go back.</div>
             <div id="saves">saves.</div>
             <div id="settings">settings.</div>
             <div id="restart">restart.</div>
-            <div id="stat01" data-passage="stats01"></div>
-            <div id="stat02" data-passage="stats02"></div>
-            <div id="return" data-passage="return"></div>
+            <div id="stat01" data-passage="stats01">stats01.</div>
+            <div id="stat02" data-passage="stats02">stats02.</div>
         </div>
+        <div id="mobile-title" data-passage="mobile_title"></div>
     </div>
 
     <!-- you must have one element with #id of 'passages' --> 
@@ -26,8 +26,11 @@
     </div>
 
 
+:: header-title
+Bacarra: Dies Irae — $chapter
+
 :: mobile_title
-$gamechapter
+/* $gamechapter */
 
 :: mobile_menu 
 <<link "navigation">>
