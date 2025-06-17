@@ -77,26 +77,37 @@ a:hover {
         HEADER + NAV 
 ********************************/
 #header {
-  background-color: var(--darkbg);
-  border-bottom: 2px solid var(--white);
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  top: 0;
-  left: 0;
-  height: 10%;
-  width: 100%;
+    background-color: var(--darkbg);
+    border-bottom: 2px solid var(--white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+#game-title {
+    color: var(--white);
+    font-family: var(--serif);
+    font-size: 28px;
+    position: absolute;
+    left: 40px; 
+    white-space: nowrap;
 }
 
 #header-links {
-  color: var(--white);
-  font-family: var(--serif);
-  padding: 15px 5px;
-  display: inline-flex;
-  font-size: 20px;
-  letter-spacing: 2px;
-  gap: 2em;
+    color: var(--white);
+    font-family: var(--serif);
+    position: absolute;
+    right: 30px;
+    display: flex;
+    font-size: 18px;
+    letter-spacing: 2px;
+    gap: 2em;
 }
 
 #header-links div {
@@ -123,6 +134,11 @@ a:hover {
 #header-links div:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+#header .header-text {
+  font-size: larger;
+  float: left;
 }
 
 /********************************
