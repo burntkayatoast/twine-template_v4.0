@@ -7,30 +7,31 @@
             <div id="back">go back.</div>
             <div id="saves">saves.</div>
             <div id="settings">settings.</div>
-            <div id="restart">restart.</div>
             <div id="stat01" data-passage="stats01">stats01.</div>
             <div id="stat02" data-passage="stats02">stats02.</div>
+            <div id="restart">restart.</div>
         </div>
         <div id="mobile-title" data-passage="mobile_title"></div>
     </div>
 
     <!-- you must have one element with #id of 'passages' --> 
-    <div id="passages"></div>
+    <div id="passage-container">
+        <div id="passages"></div>
+    </div>
 
     <div id="footer">
         <div id="footer-links"> 
             <div id="mobile-back">go back.</div>
             <div id="mobile-nav" data-passage="mobile_menu"></div>
-            <div id="return" data-passage="return"></div>
         </div>
     </div>
 
 
 :: header-title
-Template v4.0 — $chapter
+Twine Template — $chapter
 
 :: mobile_title
-/* $gamechapter */
+$gamechapter 
 
 :: mobile_menu 
 <<link "navigation">>
