@@ -1,5 +1,6 @@
 :: stats01_page [noreturn]
-<h2>STAT PAGE 01</h2>
+<h2>STAT PAGE 01</h2>\
+<div class="divider"></div>
 <div class="collapsible-container">\
   <button class="collapsible"><span>collapsible 01</span></button>\
   <div class="content">\
@@ -15,9 +16,9 @@
     <div class="content-inner">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida scelerisque lacus vel maximus. Quisque in varius tortor. Suspendisse auctor ultrices mauris, a tempor quam bibendum eget. Fusce at faucibus eros, at ullamcorper velit. Maecenas dignissim iaculis justo consequat consequat. Sed fringilla magna id neque scelerisque, eget varius elit mollis. Etiam vel maximus eros, vel feugiat purus.
 
-      Donec mauris metus, ullamcorper vel libero et, iaculis malesuada tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. In varius, urna at interdum tincidunt, massa dolor ultricies leo, venenatis tristique dui sem a nulla. Mauris et urna vitae lacus facilisis placerat nec nec erat. In laoreet nibh quis pellentesque fermentum. Mauris scelerisque velit et congue aliquam. Duis bibendum finibus erat, non ultricies leo scelerisque et. Pellentesque condimentum porta lorem in pretium. Phasellus facilisis lorem et eros blandit vulputate. Vivamus dignissim, erat sit amet mollis porta, sapien diam posuere tortor, quis convallis mi magna id arcu. Sed vulputate, justo id scelerisque egestas, ante purus aliquam tortor, vel tempor metus velit nec tortor. Duis vitae varius lacus. Praesent porttitor augue sit amet justo ultricies, sed suscipit diam cursus. Nullam sed risus sit amet ligula malesuada aliquet. Ut aliquam pharetra sapien ac porttitor. Integer luctus metus quis eros lacinia fermentum.
+      Donec mauris metus, ullamcorper vel libero et, iaculis malesuada tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. In varius, urna at interdum tincidunt, massa dolor ultricies leo, venenatis tristique dui sem a nulla. Mauris et urna vitae lacus facilisis placerat nec nec erat. In laoreet nibh quis pellentesque fermentum. Mauris scelerisque velit et congue aliquam. Duis bibendum finibus erat, non ultricies leo scelerisque et. 
 
-    </div>
+    </div>\
   </div>\
 </div>\
 
