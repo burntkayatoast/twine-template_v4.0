@@ -106,13 +106,15 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 	</div>
 	<!-- UUID://4EB7C48B-7C6A-4C16-8E9E-6637AFE7BDCE// --><tw-storydata name="template v4" startnode="8" creator="Twine (Twee 3) Language" creator-version="1.1.3" ifid="4EB7C48B-7C6A-4C16-8E9E-6637AFE7BDCE" zoom="1" format="SugarCube" format-version="2.37.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "StoryStylesheet" */
 /* FONT IMPORTS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pirata+One&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 @font-face {
   font-family: "Open Dyslexic";
   src: url("https://dl.dropbox.com/s/z61rc6kecqzn2pm/OpenDyslexic-Regular.woff2")format("woff2"),
-	url("https://dl.dropbox.com/s/7utsi12557865ty/OpenDyslexic-Regular.woff")format("woff"),
-    url("https://dl.dropbox.com/s/1q7eh2yte04g3z5/OpenDyslexic-Regular.otf")format("otf");
+	    url("https://dl.dropbox.com/s/7utsi12557865ty/OpenDyslexic-Regular.woff")format("woff"),
+      url("https://dl.dropbox.com/s/1q7eh2yte04g3z5/OpenDyslexic-Regular.otf")format("otf");
 }
+
 
 /* ICON IMPORT */
 @import url('https://cdn.jsdelivr.net/npm/css.gg/icons/all.css');
@@ -121,9 +123,14 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
   --bodyfont: "Inter", sans-serif;
   --serif:  "Spectral", serif;
   --openDyslexic: 'Open Dyslexic', sans-serif;
+  --displayfont: "Pirata One", system-ui;
   --darkbg: #1a1a1a;
-  --white: #d3d3d3;
+  --grey: #333;
+  --white: #ccc;
+  --white2:#c6c6c6;
   --accent: #ab996d;
+  --accent2: #c4b286;
+  --red: #7d1c1f;
 }
 
 .openDyslexic body {
@@ -145,6 +152,16 @@ body {
   box-sizing: border-box;
   
 }
+.dark body {background-color: var(--darkbg);}
+
+#passage-container { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;  
+  box-sizing: border-box;
+}
 
 #passages {
   background-color: var(--white);
@@ -153,14 +170,22 @@ body {
   line-height: 1.6;
   width: 65vw;
   max-width: 1400px;
-  height: 50vh; 
-  margin: 0 auto;
+  max-height: 50vh; 
   margin-top: 5em;
-  padding: 1em;
+  padding: 0 1em;
   box-sizing: border-box;
   overflow-y: auto;
   text-align: justify;
   scrollbar-width: none;
+
+  /* New centering properties */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dark #passages {
+  background-color: var(--darkbg);
+  color: var(--white);
 }
 
 #passages::-webkit-scrollbar {display: none;}
@@ -183,45 +208,60 @@ a:hover {
         HEADER + NAV 
 ********************************/
 #header {
-    background-color: var(--darkbg);
-    border-bottom: 2px solid var(--white);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 10%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 20px; 
-    box-sizing: border-box;
+  background-color: var(--darkbg);
+  border-bottom: 2px solid var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px; 
+  box-sizing: border-box;
+}
+.dark #header { 
+  background-color: var(--white2);
+  border-bottom: 2px solid var(--white2);
 }
 
 #game-title {
-    color: var(--white);
-    font-family: var(--serif);
-    font-size: 28px;
-    position: absolute;
-    left: 40px; 
-    white-space: nowrap;
+  color: var(--white);
+  font-family: var(--displayfont);
+  font-size: 28px;
+  position: absolute;
+  left: 50px; 
+  letter-spacing: 7px;
+  white-space: nowrap;
+}
+.dark #game-title { 
+  color: var(--darkbg);
+}
+
+#mobile-title { 
+  display: none;
 }
 
 #header-links {
-    color: var(--white);
-    font-family: var(--serif);
-    position: absolute;
-    right: 30px;
-    display: flex;
-    font-size: 18px;
-    letter-spacing: 2px;
-    gap: 2em;
+  font-family: var(--serif);
+  position: absolute;
+  right: 50px;
+  display: flex;
+  font-size: 18px;
+  letter-spacing: 2px;
+  gap: 2em;
 }
 
-#header-links div {
+#header-links div, #footer-links div {
   color: var(--white);
+  font-weight: bold;
   position: relative;
   cursor: pointer;
-  transition: color .3s ease-in-out;
-  padding: 4px;
+  transition: .3s ease-in-out;
+  padding: 5px;
+}
+.dark #header-links div { 
+  color: var(--darkbg);
 }
 
 #header-links div:after, #footer-links div:after {
@@ -229,29 +269,374 @@ a:hover {
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 1px;
+  height: 2px;
   bottom: 0;
   left: 0;
-  background-color: var(--accent);
+  background-color: var(--accent2);
   transform-origin: bottom left;
   transition: transform 0.4s ease-out;
 }
-#header-links div:hover {color:var(--accent);}
+.dark #header-links div:after, #footer-links div:after { 
+  background-color: var(--darkbg);
+}
+
+#header-links div:hover {color:var(--accent2);}
+.dark #header-links div:hover {color:var(--darkbg);}
 #header-links div:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 
-#header .header-text {
-  font-size: larger;
-  float: left;
-}
 
 /********************************
               FOOTER 
 ********************************/
-#footer {
-  display: none;
+#footer {display: none;}
+
+/********************************
+            DIALOG BOX
+********************************/
+/* basic */
+#ui-dialog { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: 1em; 
+  width: auto;
+  inset: auto !important; 
+  border: 1px solid var(--white);
+  color: var(--darkbg);
+}
+.dark #ui-dialog { 
+  border: 1px solid var(--darkbg);
+  color: var(--white);
+}
+
+#ui-dialog-body {
+  max-height: 70vh;
+  text-align: center;
+  background-color: var(--white);
+  border: none;
+  overflow: auto;
+}
+.dark #ui-dialog-body { 
+  background-color: var(--darkbg);
+}
+
+#ui-dialog-title {
+  font-family: var(--displayfont);
+  font-size: 26px;
+  text-transform: lowercase;
+  color: var(--darkbg);
+  text-align: center;
+  background-color: var(--white);
+  padding: 1.5em;
+  margin: 0;
+  letter-spacing: 3px;
+  font-weight: normal;
+  border-bottom: .3px solid var(--grey);
+}
+.dark #ui-dialog-title { 
+  color: var(--white);
+  background-color: var(--darkbg);
+}
+
+#ui-dialog-titlebar {
+  border-bottom: 1px solid var(--white);
+}
+.dark #ui-dialog-titlebar { 
+  border-bottom: 1px solid var(--darkbg);
+}
+#ui-dialog-close {
+  background: none;
+  font-size: 18px;
+  border: none;
+  color: var(--accent2);
+  transition: color .3s ease-in-out;
+}
+
+#ui-dialog-close:hover {
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: var(--red);
+}
+
+/* saves */
+#ui-dialog-body.saves > h2 {display: none;}
+
+#ui-dialog-body.saves #saves-list {
+  border-collapse: none;
+  border: none;
+}
+#ui-dialog-body.saves #saves-list td {
+  padding: 12px !important;
+}
+
+#ui-dialog-body.saves #saves-list button {
+  border: none;
+  font-family: var(--bodyfont);
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+}
+
+#ui-dialog-body.saves #saves-list button.load:not(:disabled) {
+  background: none;
+  border: none;
+}
+#ui-dialog-body.saves #saves-list button.delete:not(:disabled) {
+  background: none;
+  border: none;
+}
+
+#ui-dialog-body.saves #saves-list button.load:hover, #ui-dialog-body.saves #saves-list button.save:hover, #ui-dialog-body.saves #saves-list button.delete:hover {
+  background: none !important;
+}
+
+
+#ui-dialog-body.saves #saves-list button.load::before {
+  content: "load"; 
+  font-size: inherit;
+  color: var(--darkbg); 
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  padding: .5em;
+  background: none;
+  font-family: var(--bodyfont) !important;
+}
+.dark #ui-dialog-body.saves #saves-list button.load::before { 
+  color: var(--white);
+}
+
+#ui-dialog-body.saves #saves-list button.save::before {
+  content: "save"; 
+  font-size: inherit;
+  color: var(--darkbg); 
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  padding: .5em;
+  background: none;
+  font-family: var(--bodyfont) !important;
+}
+.dark #ui-dialog-body.saves #saves-list button.save::before { 
+  color: var(--white);
+}
+
+#ui-dialog-body.saves #saves-list button.delete::before {
+  content: "delete"; 
+  font-size: inherit;
+  color: var(--darkbg); 
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  padding: .5em;
+  background: none;
+  font-family: var(--bodyfont) !important;
+}
+.dark #ui-dialog-body.saves #saves-list button.delete::before { 
+  color: var(--white);
+}
+
+#ui-dialog-body.saves .buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: .5em;
+  padding: .5em;
+}
+#ui-dialog-body.saves button {
+  background: none !important;
+  letter-spacing: 1px;
+  border: none;
+  color: var(--accent);
+  transition: color .3s ease-in-out;
+
+}
+
+/* settings */
+#ui-dialog-body.settings {
+  text-align: left !important;
+  padding: 1.5em !important;
+}
+
+#ui-dialog-body.settings button, #ui-dialog-body.restart button {
+  background: none;
+  border: none;
+  text-transform: lowercase;
+  color: var(--darkbg);
+  letter-spacing: 2px;
+  transition: color .3s ease-in-out;
+}
+.dark #ui-dialog-body.settings button, #ui-dialog-body.restart button { 
+  color: var(--accent);
+}
+
+#ui-dialog-body.settings button:hover, #ui-dialog-body.saves button:hover {
+  color: var(--accent2) !important;
+}
+
+#ui-dialog-body.settings .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#ui-dialog-body.settings button[id|=setting-control] { 
+  background-color: var(--white);
+  color: var(--darkbg);
+  border: 1px solid var(--darkbg);
+}
+.dark #ui-dialog-body.settings button[id|=setting-control] { 
+  background-color: var(--darkbg);
+  color: var(--white);
+  border: 1px solid var(--white2);
+}
+
+#ui-dialog-body.settings button[id|="setting-control"].enabled {
+  background-color: var(--accent2);
+  border: 1px solid var(--grey);
+  transition: .3s ease-in-out;
+}
+.dark #ui-dialog-body.settings button[id|="setting-control"].enabled { 
+  background-color: var(--accent2);
+  border: 1px solid var(--white2);
+  color: var(--darkbg);
+}
+
+#ui-dialog-body.settings button[id|="setting-control"].enabled:hover {
+  border: 1px solid var(--grey);
+  background: none !important;
+}
+
+.dark #ui-dialog-body.settings button[id|="setting-control"].enabled:hover { 
+  border: 1px solid var(--white2);
+}
+
+#ui-dialog-body #setting-control-theme, #ui-dialog-body #setting-control-fontsize, #ui-dialog-body #setting-control-fontfamily {
+  background-color: var(--white);
+  border: 1px solid var(--darkbg);
+  color: var(--darkbg);
+}
+.dark #ui-dialog-body #setting-control-theme, .dark #ui-dialog-body #setting-control-fontsize, .dark #ui-dialog-body #setting-control-fontfamily { 
+  background-color: var(--darkbg);
+  border: 1px solid var(--white2);
+  color: var(--white2);
+}
+
+#ui-dialog-body #setting-control-theme:hover, #ui-dialog-body #setting-control-fontsize:hover, #ui-dialog-body #setting-control-fontfamily:hover {
+  background-color: var(--white);
+  border: 1px solid var(--darkbg);
+  color: var(--darkbg);
+}
+.dark #ui-dialog-body #setting-control-theme:hover, .dark #ui-dialog-body #setting-control-fontsize:hover, .dark #ui-dialog-body #setting-control-fontfamily:hover { 
+  background-color: var(--darkbg);
+  border: 1px solid var(--white2);
+  color: var(--white2);
+}
+
+
+/********************************
+              MOBILE 
+********************************/
+@media screen and (max-width: 1100px) {
+  #passages { 
+    width: 95%;
+    max-height: 75vh;
+    margin-top: 1em;
+  }
+  #header { 
+    height: 7%;
+    justify-content: center;
+  }
+  #header-links { 
+    display: none;
+  }
+  #game-title { 
+    position: static;
+    left: auto;
+    font-size: 20px;
+  }
+  
+  /* FOOTER */
+  #footer {
+    display: flex;
+    background-color: var(--darkbg);
+    border-top: 2px solid var(--white);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 6.5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px; 
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  .dark #footer { 
+    background-color: var(--white2);
+  }
+
+  #footer-links { 
+    font-family: var(--serif);
+    position: absolute;
+    display: flex;
+    font-size: 15.5px;
+    letter-spacing: 2px;
+    gap: 2em;
+  }
+
+  #footer-links div {
+    color: var(--white);
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    padding: 5px;
+  }
+  .dark #footer-links div {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:hover {
+    color: var(--accent2);
+  }
+  .dark #footer-links div:hover {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent2);
+    transform-origin: bottom left;
+    transition: transform 0.4s ease-out;
+  }
+  .dark #footer-links div:after {
+    background-color: var(--darkbg);
+  }
+  
+  #footer-links div:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  #navigation-links a { 
+    display: block;
+    color: var(--darkbg);
+    transition: .4s ease-in-out;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+  }
+  .dark #navigation-links a { 
+    color: var(--white);
+  }
+  #navigation-links a:hover { 
+    color: var(--accent);
+  }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* twine-user-script #1: "StoryScript" */
 // collapsible button
 $(document).on(":passagedisplay", function () {
@@ -322,7 +707,7 @@ Config.saves.isAllowed = function (saveType) {
 
 // Automatically generate save descriptions
 Config.saves.descriptions = function (saveType) {
-    const chapter = State.getVar("$gamechapter") || "Unknown Chapter"; // Default to "Unknown Chapter" if $gamechapter is not set
+    const chapter = State.getVar("$chapter") || "Unknown Chapter"; // Default to "Unknown Chapter" if $gamechapter is not set
     const name = State.getVar("$name") || "Unnamed"; // Default to "Unnamed" if $name is not set
 
     // Format the save description as "Chapter - Name"
@@ -348,16 +733,12 @@ function lock (orientation) {
 
 /*--------- SETTINGS -------- */
 // change font size 
-var settingFontSize = ["16px", "17px", "18px", "19px", "20px", "21px", "22px"];
+var settingFontSize = ["17px", "18px", "19px", "20px", "21px", "22px"];
 var resizeFont = function() {
     var size = document.getElementById('passages');
     var dialogBody = document.getElementById('ui-dialog-body'); // Select the dialog box body
 
     switch (settings.fontSize) { 
-        case "16px":
-            size.style.fontSize = "16px";
-            if (dialogBody) dialogBody.style.fontSize = "16px"; // Update dialog font size
-            break;
         case "17px":
             size.style.fontSize = "17px";
             if (dialogBody) dialogBody.style.fontSize = "17px";
@@ -387,7 +768,7 @@ var resizeFont = function() {
 Setting.addList("fontSize", {
 	label		: "Change Font Size",
 	list		: settingFontSize,
-    default     : "16px",
+  default     : "17px",
 	onInit		: resizeFont,
 	onChange	: resizeFont
 });
@@ -419,17 +800,17 @@ Setting.addList("fontFamily", {
 var settingThemeNames = ["Dark", "Light"];
 var settingThemeHandler = function () {
 	var $html = $("html");
-	$html.removeClass("light");
+	$html.removeClass("dark");
 	switch (settings.theme) {
-	case "Light":
-		$html.addClass("light");
+	case "Dark":
+		$html.addClass("dark");
 		break;
 	}
 };
 Setting.addList("theme", {
 	label    : "Switch display mode",
 	list     : settingThemeNames,
-	default	 : "Dark",
+	default	 : "Light",
 	onInit   : settingThemeHandler,
 	onChange : settingThemeHandler
 });
@@ -458,23 +839,24 @@ Setting.addToggle("content-warning", {
             &lt;div id=&quot;back&quot;&gt;go back.&lt;/div&gt;
             &lt;div id=&quot;saves&quot;&gt;saves.&lt;/div&gt;
             &lt;div id=&quot;settings&quot;&gt;settings.&lt;/div&gt;
-            &lt;div id=&quot;restart&quot;&gt;restart.&lt;/div&gt;
             &lt;div id=&quot;stat01&quot; data-passage=&quot;stats01&quot;&gt;stats01.&lt;/div&gt;
             &lt;div id=&quot;stat02&quot; data-passage=&quot;stats02&quot;&gt;stats02.&lt;/div&gt;
+            &lt;div id=&quot;restart&quot;&gt;restart.&lt;/div&gt;
         &lt;/div&gt;
         &lt;div id=&quot;mobile-title&quot; data-passage=&quot;mobile_title&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
 
     &lt;!-- you must have one element with #id of &#39;passages&#39; --&gt; 
-    &lt;div id=&quot;passages&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;passage-container&quot;&gt;
+        &lt;div id=&quot;passages&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
 
     &lt;div id=&quot;footer&quot;&gt;
         &lt;div id=&quot;footer-links&quot;&gt; 
             &lt;div id=&quot;mobile-back&quot;&gt;go back.&lt;/div&gt;
             &lt;div id=&quot;mobile-nav&quot; data-passage=&quot;mobile_menu&quot;&gt;&lt;/div&gt;
-            &lt;div id=&quot;return&quot; data-passage=&quot;return&quot;&gt;&lt;/div&gt;
         &lt;/div&gt;
-    &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="header-title" tags="" position="225,100" size="100,100">Bacarra: Dies Irae — $chapter</tw-passagedata><tw-passagedata pid="3" name="mobile_title" tags="" position="350,100" size="100,100">/* $gamechapter */</tw-passagedata><tw-passagedata pid="4" name="mobile_menu" tags="" position="475,100" size="100,100">&lt;&lt;link &quot;navigation&quot;&gt;&gt;
+    &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="header-title" tags="" position="225,100" size="100,100">Twine Template — $chapter</tw-passagedata><tw-passagedata pid="3" name="mobile_title" tags="" position="350,100" size="100,100">$gamechapter</tw-passagedata><tw-passagedata pid="4" name="mobile_menu" tags="" position="475,100" size="100,100">&lt;&lt;link &quot;navigation&quot;&gt;&gt;
     &lt;&lt;dialog &quot; menu.&quot;&gt;&gt;
         &lt;div id=&quot;navigation-links&quot;&gt;\
         &lt;&lt;link &quot;saves&quot;&gt;&gt;&lt;&lt;run UI.saves()&gt;&gt;&lt;&lt;/link&gt;&gt;\
