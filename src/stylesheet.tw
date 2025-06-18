@@ -214,128 +214,6 @@ h2 {
   padding: 0 20px;
 }
 
-
-/********************************
-              MOBILE 
-********************************/
-@media screen and (max-width: 1200px) {
-  #passages { 
-    width: 95%;
-    max-height: 75vh;
-    margin-top: 1em;
-  }
-  #header { 
-    height: 7%;
-    justify-content: center;
-  }
-  #header-links { 
-    display: none !important;
-  }
-  #game-title { 
-    position: static;
-    left: auto;
-    font-size: 20px;
-  }
-  
-  /* FOOTER */
-  #footer {
-    display: flex;
-    background-color: var(--darkbg);
-    border-top: 2px solid var(--white);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 6.5%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 20px; 
-    box-sizing: border-box;
-    justify-content: center;
-  }
-  .dark #footer { 
-    background-color: var(--white);
-  }
-
-  #footer-links { 
-    font-family: var(--serif);
-    position: absolute;
-    display: flex;
-    font-size: 15.5px;
-    letter-spacing: 2px;
-    gap: 2em;
-  }
-
-  #footer-links div {
-    color: var(--white);
-    font-weight: bold;
-    position: relative;
-    cursor: pointer;
-    transition: .3s ease-in-out;
-    padding: 5px;
-  }
-  .dark #footer-links div {
-    color: var(--darkbg);
-  }
-  
-  #footer-links div:hover {
-    color: var(--accent2);
-  }
-  .dark #footer-links div:hover {
-    color: var(--darkbg);
-  }
-  
-  #footer-links div:after {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent2);
-    transform-origin: bottom left;
-    transition: transform 0.4s ease-out;
-  }
-  .dark #footer-links div:after {
-    background-color: var(--darkbg);
-  }
-  
-  #footer-links div:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  #navigation-links a { 
-    display: block;
-    color: var(--darkbg);
-    transition: .4s ease-in-out;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-  }
-  .dark #navigation-links a { 
-    color: var(--white);
-  }
-  #navigation-links a:hover { 
-    color: var(--accent);
-  }
-
-  /* collapsible */
-  .collapsible { 
-    width: 100%;
-  }
-  .collapsible span { 
-    font-size: 100%;
-  }
-  .content { 
-    width: 100%;
-  }
-
-  h2 { 
-    font-size: 300%;
-  }
-}
-
 /********************************
         HEADER + NAV 
 ********************************/
@@ -662,4 +540,126 @@ h2 {
   background-color: var(--darkbg);
   border: 1px solid var(--white);
   color: var(--white);
+}
+
+
+/********************************
+              MOBILE 
+********************************/
+@media screen and (max-width: 1200px) {
+  #passages { 
+    width: 95%;
+    max-height: 75vh;
+    margin-top: 1em;
+  }
+  #header { 
+    height: 7%;
+    justify-content: center;
+  }
+  #header-links { 
+    display: none;
+  }
+  #game-title { 
+    position: static;
+    left: auto;
+    font-size: 20px;
+  }
+  
+  /* FOOTER */
+  #footer {
+    display: flex;
+    background-color: var(--darkbg);
+    border-top: 2px solid var(--white);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 6.5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px; 
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  .dark #footer { 
+    background-color: var(--white);
+  }
+
+  #footer-links { 
+    font-family: var(--serif);
+    position: absolute;
+    display: flex;
+    font-size: 15.5px;
+    letter-spacing: 2px;
+    gap: 2em;
+  }
+
+  #footer-links div {
+    color: var(--white);
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    padding: 5px;
+  }
+  .dark #footer-links div {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:hover {
+    color: var(--accent2);
+  }
+  .dark #footer-links div:hover {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent2);
+    transform-origin: bottom left;
+    transition: transform 0.4s ease-out;
+  }
+  .dark #footer-links div:after {
+    background-color: var(--darkbg);
+  }
+  
+  #footer-links div:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  #navigation-links a { 
+    display: block;
+    color: var(--darkbg);
+    transition: .4s ease-in-out;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+  }
+  .dark #navigation-links a { 
+    color: var(--white);
+  }
+  #navigation-links a:hover { 
+    color: var(--accent);
+  }
+
+  /* collapsible */
+  .collapsible { 
+    width: 100%;
+  }
+  .collapsible span { 
+    font-size: 100%;
+  }
+  .content { 
+    width: 100%;
+  }
+
+  h2 { 
+    font-size: 300%;
+  }
 }
