@@ -20,8 +20,7 @@
   --displayfont: "Pirata One", system-ui;
   --darkbg: #1a1a1a;
   --grey: #333;
-  --white: #ccc;
-  --white2:#c6c6c6;
+  --white: #c6c6c6;
   --accent: #ab996d;
   --accent2: #c4b286;
   --red: #7d1c1f;
@@ -90,12 +89,225 @@ body {
 /* links */
 a {
   text-decoration: none;
+  background-color: none;
   color: inherit;
 }
 
 a:hover {
   text-decoration: none;
+  background-color: none;
   color: inherit;
+}
+
+/********************************
+            STAT PAGE
+********************************/
+h2 { 
+  text-align: center;
+  font-size: 500%;
+  letter-spacing: 5px;
+  margin: 0;
+}
+
+/********************************
+        COLLAPSIBLE BTN
+********************************/
+.collapsible-container { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.collapsible { 
+  background-color: var(--darkbg);
+  color: var(--white);
+  width: 75%;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+  transition: .5s ease-in-out;
+  font-family: var(--bodyfont);
+  text-transform: uppercase;
+  padding: 1.5em 0;
+}
+.dark .collapsible { 
+  background-color: var(--white);
+  color: var(--darkbg);
+}
+
+.collapsible span { 
+  margin: 0 1.2em;
+  font-size: 110%;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+.collapsible:hover { 
+  background-color: var(--accent2);
+  color: var(--darkbg);
+}
+
+.collapsible:after { 
+  content: '\002B';
+  color: var(--white);
+  float: right;
+  margin-right: 25px;
+}
+.collapsible:hover:after { 
+  color: var(--darkbg);
+}
+.dark .collapsible:after { 
+  color: var(--darkbg);
+}
+
+.collapsible.active:after { 
+  content: '\2212';
+}
+
+.content {
+  width: 75%; 
+  padding: 0; 
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: var(--grey);
+  color: var(--white);
+  margin-top: -1px;
+}
+
+.dark .content { 
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.content-inner { 
+  padding: 0 20px;
+}
+
+
+/********************************
+              MOBILE 
+********************************/
+@media screen and (max-width: 1200px) {
+  #passages { 
+    width: 95%;
+    max-height: 75vh;
+    margin-top: 1em;
+  }
+  #header { 
+    height: 7%;
+    justify-content: center;
+  }
+  #header-links { 
+    display: none !important;
+  }
+  #game-title { 
+    position: static;
+    left: auto;
+    font-size: 20px;
+  }
+  
+  /* FOOTER */
+  #footer {
+    display: flex;
+    background-color: var(--darkbg);
+    border-top: 2px solid var(--white);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 6.5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px; 
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  .dark #footer { 
+    background-color: var(--white);
+  }
+
+  #footer-links { 
+    font-family: var(--serif);
+    position: absolute;
+    display: flex;
+    font-size: 15.5px;
+    letter-spacing: 2px;
+    gap: 2em;
+  }
+
+  #footer-links div {
+    color: var(--white);
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    padding: 5px;
+  }
+  .dark #footer-links div {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:hover {
+    color: var(--accent2);
+  }
+  .dark #footer-links div:hover {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent2);
+    transform-origin: bottom left;
+    transition: transform 0.4s ease-out;
+  }
+  .dark #footer-links div:after {
+    background-color: var(--darkbg);
+  }
+  
+  #footer-links div:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  #navigation-links a { 
+    display: block;
+    color: var(--darkbg);
+    transition: .4s ease-in-out;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+  }
+  .dark #navigation-links a { 
+    color: var(--white);
+  }
+  #navigation-links a:hover { 
+    color: var(--accent);
+  }
+
+  /* collapsible */
+  .collapsible { 
+    width: 100%;
+  }
+  .collapsible span { 
+    font-size: 100%;
+  }
+  .content { 
+    width: 100%;
+  }
+
+  h2 { 
+    font-size: 300%;
+  }
 }
 
 /********************************
@@ -115,8 +327,8 @@ a:hover {
   box-sizing: border-box;
 }
 .dark #header { 
-  background-color: var(--white2);
-  border-bottom: 2px solid var(--white2);
+  background-color: var(--white);
+  border-bottom: 2px solid var(--white);
 }
 
 #game-title {
@@ -381,7 +593,7 @@ a:hover {
 .dark #ui-dialog-body.settings button[id|=setting-control] { 
   background-color: var(--darkbg);
   color: var(--white);
-  border: 1px solid var(--white2);
+  border: 1px solid var(--white);
 }
 
 #ui-dialog-body.settings button[id|="setting-control"].enabled {
@@ -391,7 +603,7 @@ a:hover {
 }
 .dark #ui-dialog-body.settings button[id|="setting-control"].enabled { 
   background-color: var(--accent2);
-  border: 1px solid var(--white2);
+  border: 1px solid var(--white);
   color: var(--darkbg);
 }
 
@@ -401,7 +613,7 @@ a:hover {
 }
 
 .dark #ui-dialog-body.settings button[id|="setting-control"].enabled:hover { 
-  border: 1px solid var(--white2);
+  border: 1px solid var(--white);
 }
 
 #ui-dialog-body #setting-control-theme, #ui-dialog-body #setting-control-fontsize, #ui-dialog-body #setting-control-fontfamily {
@@ -411,8 +623,8 @@ a:hover {
 }
 .dark #ui-dialog-body #setting-control-theme, .dark #ui-dialog-body #setting-control-fontsize, .dark #ui-dialog-body #setting-control-fontfamily { 
   background-color: var(--darkbg);
-  border: 1px solid var(--white2);
-  color: var(--white2);
+  border: 1px solid var(--white);
+  color: var(--white);
 }
 
 #ui-dialog-body #setting-control-theme:hover, #ui-dialog-body #setting-control-fontsize:hover, #ui-dialog-body #setting-control-fontfamily:hover {
@@ -422,113 +634,6 @@ a:hover {
 }
 .dark #ui-dialog-body #setting-control-theme:hover, .dark #ui-dialog-body #setting-control-fontsize:hover, .dark #ui-dialog-body #setting-control-fontfamily:hover { 
   background-color: var(--darkbg);
-  border: 1px solid var(--white2);
-  color: var(--white2);
-}
-
-
-/********************************
-              MOBILE 
-********************************/
-@media screen and (max-width: 1100px) {
-  #passages { 
-    width: 95%;
-    max-height: 75vh;
-    margin-top: 1em;
-  }
-  #header { 
-    height: 7%;
-    justify-content: center;
-  }
-  #header-links { 
-    display: none;
-  }
-  #game-title { 
-    position: static;
-    left: auto;
-    font-size: 20px;
-  }
-  
-  /* FOOTER */
-  #footer {
-    display: flex;
-    background-color: var(--darkbg);
-    border-top: 2px solid var(--white);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 6.5%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 20px; 
-    box-sizing: border-box;
-    justify-content: center;
-  }
-  .dark #footer { 
-    background-color: var(--white2);
-  }
-
-  #footer-links { 
-    font-family: var(--serif);
-    position: absolute;
-    display: flex;
-    font-size: 15.5px;
-    letter-spacing: 2px;
-    gap: 2em;
-  }
-
-  #footer-links div {
-    color: var(--white);
-    font-weight: bold;
-    position: relative;
-    cursor: pointer;
-    transition: .3s ease-in-out;
-    padding: 5px;
-  }
-  .dark #footer-links div {
-    color: var(--darkbg);
-  }
-  
-  #footer-links div:hover {
-    color: var(--accent2);
-  }
-  .dark #footer-links div:hover {
-    color: var(--darkbg);
-  }
-  
-  #footer-links div:after {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent2);
-    transform-origin: bottom left;
-    transition: transform 0.4s ease-out;
-  }
-  .dark #footer-links div:after {
-    background-color: var(--darkbg);
-  }
-  
-  #footer-links div:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  #navigation-links a { 
-    display: block;
-    color: var(--darkbg);
-    transition: .4s ease-in-out;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-  }
-  .dark #navigation-links a { 
-    color: var(--white);
-  }
-  #navigation-links a:hover { 
-    color: var(--accent);
-  }
+  border: 1px solid var(--white);
+  color: var(--white);
 }
