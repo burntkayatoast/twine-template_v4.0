@@ -126,8 +126,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
   --displayfont: "Pirata One", system-ui;
   --darkbg: #1a1a1a;
   --grey: #333;
-  --white: #ccc;
-  --white2:#c6c6c6;
+  --white: #c6c6c6;
   --accent: #ab996d;
   --accent2: #c4b286;
   --red: #7d1c1f;
@@ -196,12 +195,225 @@ body {
 /* links */
 a {
   text-decoration: none;
+  background-color: none;
   color: inherit;
 }
 
 a:hover {
   text-decoration: none;
+  background-color: none;
   color: inherit;
+}
+
+/********************************
+            STAT PAGE
+********************************/
+h2 { 
+  text-align: center;
+  font-size: 500%;
+  letter-spacing: 5px;
+  margin: 0;
+}
+
+/********************************
+        COLLAPSIBLE BTN
+********************************/
+.collapsible-container { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.collapsible { 
+  background-color: var(--darkbg);
+  color: var(--white);
+  width: 75%;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+  transition: .5s ease-in-out;
+  font-family: var(--bodyfont);
+  text-transform: uppercase;
+  padding: 1.5em 0;
+}
+.dark .collapsible { 
+  background-color: var(--white);
+  color: var(--darkbg);
+}
+
+.collapsible span { 
+  margin: 0 1.2em;
+  font-size: 110%;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+.collapsible:hover { 
+  background-color: var(--accent2);
+  color: var(--darkbg);
+}
+
+.collapsible:after { 
+  content: '\002B';
+  color: var(--white);
+  float: right;
+  margin-right: 25px;
+}
+.collapsible:hover:after { 
+  color: var(--darkbg);
+}
+.dark .collapsible:after { 
+  color: var(--darkbg);
+}
+
+.collapsible.active:after { 
+  content: '\2212';
+}
+
+.content {
+  width: 75%; 
+  padding: 0; 
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: var(--grey);
+  color: var(--white);
+  margin-top: -1px;
+}
+
+.dark .content { 
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.content-inner { 
+  padding: 0 20px;
+}
+
+
+/********************************
+              MOBILE 
+********************************/
+@media screen and (max-width: 1200px) {
+  #passages { 
+    width: 95%;
+    max-height: 75vh;
+    margin-top: 1em;
+  }
+  #header { 
+    height: 7%;
+    justify-content: center;
+  }
+  #header-links { 
+    display: none !important;
+  }
+  #game-title { 
+    position: static;
+    left: auto;
+    font-size: 20px;
+  }
+  
+  /* FOOTER */
+  #footer {
+    display: flex;
+    background-color: var(--darkbg);
+    border-top: 2px solid var(--white);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 6.5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px; 
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  .dark #footer { 
+    background-color: var(--white);
+  }
+
+  #footer-links { 
+    font-family: var(--serif);
+    position: absolute;
+    display: flex;
+    font-size: 15.5px;
+    letter-spacing: 2px;
+    gap: 2em;
+  }
+
+  #footer-links div {
+    color: var(--white);
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    padding: 5px;
+  }
+  .dark #footer-links div {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:hover {
+    color: var(--accent2);
+  }
+  .dark #footer-links div:hover {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent2);
+    transform-origin: bottom left;
+    transition: transform 0.4s ease-out;
+  }
+  .dark #footer-links div:after {
+    background-color: var(--darkbg);
+  }
+  
+  #footer-links div:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  #navigation-links a { 
+    display: block;
+    color: var(--darkbg);
+    transition: .4s ease-in-out;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+  }
+  .dark #navigation-links a { 
+    color: var(--white);
+  }
+  #navigation-links a:hover { 
+    color: var(--accent);
+  }
+
+  /* collapsible */
+  .collapsible { 
+    width: 100%;
+  }
+  .collapsible span { 
+    font-size: 100%;
+  }
+  .content { 
+    width: 100%;
+  }
+
+  h2 { 
+    font-size: 300%;
+  }
 }
 
 /********************************
@@ -221,8 +433,8 @@ a:hover {
   box-sizing: border-box;
 }
 .dark #header { 
-  background-color: var(--white2);
-  border-bottom: 2px solid var(--white2);
+  background-color: var(--white);
+  border-bottom: 2px solid var(--white);
 }
 
 #game-title {
@@ -487,7 +699,7 @@ a:hover {
 .dark #ui-dialog-body.settings button[id|=setting-control] { 
   background-color: var(--darkbg);
   color: var(--white);
-  border: 1px solid var(--white2);
+  border: 1px solid var(--white);
 }
 
 #ui-dialog-body.settings button[id|="setting-control"].enabled {
@@ -497,7 +709,7 @@ a:hover {
 }
 .dark #ui-dialog-body.settings button[id|="setting-control"].enabled { 
   background-color: var(--accent2);
-  border: 1px solid var(--white2);
+  border: 1px solid var(--white);
   color: var(--darkbg);
 }
 
@@ -507,7 +719,7 @@ a:hover {
 }
 
 .dark #ui-dialog-body.settings button[id|="setting-control"].enabled:hover { 
-  border: 1px solid var(--white2);
+  border: 1px solid var(--white);
 }
 
 #ui-dialog-body #setting-control-theme, #ui-dialog-body #setting-control-fontsize, #ui-dialog-body #setting-control-fontfamily {
@@ -517,8 +729,8 @@ a:hover {
 }
 .dark #ui-dialog-body #setting-control-theme, .dark #ui-dialog-body #setting-control-fontsize, .dark #ui-dialog-body #setting-control-fontfamily { 
   background-color: var(--darkbg);
-  border: 1px solid var(--white2);
-  color: var(--white2);
+  border: 1px solid var(--white);
+  color: var(--white);
 }
 
 #ui-dialog-body #setting-control-theme:hover, #ui-dialog-body #setting-control-fontsize:hover, #ui-dialog-body #setting-control-fontfamily:hover {
@@ -528,115 +740,8 @@ a:hover {
 }
 .dark #ui-dialog-body #setting-control-theme:hover, .dark #ui-dialog-body #setting-control-fontsize:hover, .dark #ui-dialog-body #setting-control-fontfamily:hover { 
   background-color: var(--darkbg);
-  border: 1px solid var(--white2);
-  color: var(--white2);
-}
-
-
-/********************************
-              MOBILE 
-********************************/
-@media screen and (max-width: 1100px) {
-  #passages { 
-    width: 95%;
-    max-height: 75vh;
-    margin-top: 1em;
-  }
-  #header { 
-    height: 7%;
-    justify-content: center;
-  }
-  #header-links { 
-    display: none;
-  }
-  #game-title { 
-    position: static;
-    left: auto;
-    font-size: 20px;
-  }
-  
-  /* FOOTER */
-  #footer {
-    display: flex;
-    background-color: var(--darkbg);
-    border-top: 2px solid var(--white);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 6.5%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 20px; 
-    box-sizing: border-box;
-    justify-content: center;
-  }
-  .dark #footer { 
-    background-color: var(--white2);
-  }
-
-  #footer-links { 
-    font-family: var(--serif);
-    position: absolute;
-    display: flex;
-    font-size: 15.5px;
-    letter-spacing: 2px;
-    gap: 2em;
-  }
-
-  #footer-links div {
-    color: var(--white);
-    font-weight: bold;
-    position: relative;
-    cursor: pointer;
-    transition: .3s ease-in-out;
-    padding: 5px;
-  }
-  .dark #footer-links div {
-    color: var(--darkbg);
-  }
-  
-  #footer-links div:hover {
-    color: var(--accent2);
-  }
-  .dark #footer-links div:hover {
-    color: var(--darkbg);
-  }
-  
-  #footer-links div:after {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent2);
-    transform-origin: bottom left;
-    transition: transform 0.4s ease-out;
-  }
-  .dark #footer-links div:after {
-    background-color: var(--darkbg);
-  }
-  
-  #footer-links div:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  #navigation-links a { 
-    display: block;
-    color: var(--darkbg);
-    transition: .4s ease-in-out;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-  }
-  .dark #navigation-links a { 
-    color: var(--white);
-  }
-  #navigation-links a:hover { 
-    color: var(--accent);
-  }
+  border: 1px solid var(--white);
+  color: var(--white);
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* twine-user-script #1: "StoryScript" */
 // collapsible button
 $(document).on(":passagedisplay", function () {
@@ -871,6 +976,10 @@ Setting.addToggle("content-warning", {
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="StartMenu" tags="" position="975,100" size="100,100">&lt;&lt;link &quot;stats01.&quot; &quot;stats01_page&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;stats02.&quot; &quot;stats02_page&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 
+Collapsible demo
+
+
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida scelerisque lacus vel maximus. Quisque in varius tortor. Suspendisse auctor ultrices mauris, a tempor quam bibendum eget. Fusce at faucibus eros, at ullamcorper velit. Maecenas dignissim iaculis justo consequat consequat. Sed fringilla magna id neque scelerisque, eget varius elit mollis. Etiam vel maximus eros, vel feugiat purus.
 
 Donec mauris metus, ullamcorper vel libero et, iaculis malesuada tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. In varius, urna at interdum tincidunt, massa dolor ultricies leo, venenatis tristique dui sem a nulla. Mauris et urna vitae lacus facilisis placerat nec nec erat. In laoreet nibh quis pellentesque fermentum. Mauris scelerisque velit et congue aliquam. Duis bibendum finibus erat, non ultricies leo scelerisque et. Pellentesque condimentum porta lorem in pretium. Phasellus facilisis lorem et eros blandit vulputate. Vivamus dignissim, erat sit amet mollis porta, sapien diam posuere tortor, quis convallis mi magna id arcu. Sed vulputate, justo id scelerisque egestas, ante purus aliquam tortor, vel tempor metus velit nec tortor. Duis vitae varius lacus. Praesent porttitor augue sit amet justo ultricies, sed suscipit diam cursus. Nullam sed risus sit amet ligula malesuada aliquet. Ut aliquam pharetra sapien ac porttitor. Integer luctus metus quis eros lacinia fermentum.
@@ -889,7 +998,38 @@ Sed dictum interdum sem eget ornare. Donec quis egestas odio. Nulla semper, augu
 
 Integer in lacinia metus. Phasellus ullamcorper tellus justo, a interdum sem placerat id. Suspendisse vestibulum libero sed molestie vehicula. Integer a ante accumsan, efficitur leo id, mattis elit. Duis eu mollis diam, sit amet semper urna. Aliquam mattis congue sapien sed interdum. Vivamus vehicula finibus felis, convallis vulputate augue venenatis eu. Quisque consectetur rhoncus efficitur. Morbi ornare est vel lectus blandit sagittis. Maecenas sed ornare urna.
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer condimentum ultricies lorem, sit amet elementum metus laoreet mollis. Aenean pulvinar suscipit tempor. Nullam in euismod ante. Donec et tortor dignissim quam semper finibus. Nulla viverra porttitor diam, et varius lorem gravida in. Donec justo dui, finibus id sagittis ut, molestie at mauris. Etiam non luctus diam. Nullam dictum pharetra ante quis eleifend. Nam suscipit porta sem, interdum ultricies nisi varius efficitur. Praesent sed scelerisque est.</tw-passagedata><tw-passagedata pid="9" name="stats01_page" tags="noreturn" position="1100,100" size="100,100">hello?</tw-passagedata><tw-passagedata pid="10" name="stats02_page" tags="noreturn" position="1225,100" size="100,100">hello hello?</tw-passagedata><tw-passagedata pid="11" name="StoryInit" tags="" position="100,225" size="100,100">/* define story variables here*/ 
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer condimentum ultricies lorem, sit amet elementum metus laoreet mollis. Aenean pulvinar suscipit tempor. Nullam in euismod ante. Donec et tortor dignissim quam semper finibus. Nulla viverra porttitor diam, et varius lorem gravida in. Donec justo dui, finibus id sagittis ut, molestie at mauris. Etiam non luctus diam. Nullam dictum pharetra ante quis eleifend. Nam suscipit porta sem, interdum ultricies nisi varius efficitur. Praesent sed scelerisque est.</tw-passagedata><tw-passagedata pid="9" name="stats01_page" tags="noreturn" position="1100,100" size="100,100">&lt;h2&gt;STAT PAGE 01&lt;/h2&gt;
+&lt;div class=&quot;collapsible-container&quot;&gt;\
+  &lt;button class=&quot;collapsible&quot;&gt;&lt;span&gt;collapsible 01&lt;/span&gt;&lt;/button&gt;\
+  &lt;div class=&quot;content&quot;&gt;\
+    &lt;div class=&quot;content-inner&quot;&gt;
+      hello, why do you look weird?
+    &lt;/div&gt;
+  &lt;/div&gt;\
+&lt;/div&gt;\
+
+&lt;div class=&quot;collapsible-container&quot;&gt;\
+  &lt;button class=&quot;collapsible&quot;&gt;&lt;span&gt;collapsible 02&lt;/span&gt;&lt;/button&gt;\
+  &lt;div class=&quot;content&quot;&gt;\
+    &lt;div class=&quot;content-inner&quot;&gt;
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida scelerisque lacus vel maximus. Quisque in varius tortor. Suspendisse auctor ultrices mauris, a tempor quam bibendum eget. Fusce at faucibus eros, at ullamcorper velit. Maecenas dignissim iaculis justo consequat consequat. Sed fringilla magna id neque scelerisque, eget varius elit mollis. Etiam vel maximus eros, vel feugiat purus.
+
+      Donec mauris metus, ullamcorper vel libero et, iaculis malesuada tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. In varius, urna at interdum tincidunt, massa dolor ultricies leo, venenatis tristique dui sem a nulla. Mauris et urna vitae lacus facilisis placerat nec nec erat. In laoreet nibh quis pellentesque fermentum. Mauris scelerisque velit et congue aliquam. Duis bibendum finibus erat, non ultricies leo scelerisque et. Pellentesque condimentum porta lorem in pretium. Phasellus facilisis lorem et eros blandit vulputate. Vivamus dignissim, erat sit amet mollis porta, sapien diam posuere tortor, quis convallis mi magna id arcu. Sed vulputate, justo id scelerisque egestas, ante purus aliquam tortor, vel tempor metus velit nec tortor. Duis vitae varius lacus. Praesent porttitor augue sit amet justo ultricies, sed suscipit diam cursus. Nullam sed risus sit amet ligula malesuada aliquet. Ut aliquam pharetra sapien ac porttitor. Integer luctus metus quis eros lacinia fermentum.
+
+    &lt;/div&gt;
+  &lt;/div&gt;\
+&lt;/div&gt;\
+
+&lt;div class=&quot;collapsible-container&quot;&gt;\
+  &lt;button class=&quot;collapsible&quot;&gt;&lt;span&gt;collapsible 03&lt;/span&gt;&lt;/button&gt;\
+  &lt;div class=&quot;content&quot;&gt;\
+    &lt;div class=&quot;content-inner&quot;&gt;
+      hello, why do you look weird?
+    &lt;/div&gt;
+  &lt;/div&gt;\
+&lt;/div&gt;\
+
+this is the beginning of the first stat page. Here you can implement things such as a codex for worldbuilding—a glossary pertaining to creatures, items and definitions of your world. Or use it to contain information for your ROs.</tw-passagedata><tw-passagedata pid="10" name="stats02_page" tags="noreturn" position="1225,100" size="100,100">hello hello?</tw-passagedata><tw-passagedata pid="11" name="StoryInit" tags="" position="100,225" size="100,100">/* define story variables here*/ 
 &lt;&lt;set $chapter to &quot;00.&quot;&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
