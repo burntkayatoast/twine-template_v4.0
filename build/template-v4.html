@@ -206,13 +206,39 @@ a:hover {
 }
 
 /********************************
-            STAT PAGE
+              MISC 
 ********************************/
 h2 { 
   text-align: center;
   font-size: 500%;
   letter-spacing: 5px;
   margin: 0;
+}
+
+.divider { 
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right,
+        transparent,
+        rgba(26, 26, 26, 0.4),  /* 1a1a1a at 30% opacity */
+        rgba(26, 26, 26, 0.7),  /* 1a1a1a at 70% opacity */
+        var(--darkbg),
+        var(--darkbg),                /* Full color in middle */
+        rgba(26, 26, 26, 0.7),
+        rgba(26, 26, 26, 0.4),
+        transparent);
+  border: none;
+}
+.dark .divider { 
+  background: linear-gradient(to right,
+        transparent,
+        rgba(198, 198, 198, 0.4),
+        rgba(198, 198, 198, 0.7),
+        var(--white),
+        var(--white),
+        rgba(198, 198, 198, 0.7),
+        rgba(198, 198, 198, 0.4),
+        transparent);
 }
 
 /********************************
@@ -998,7 +1024,8 @@ Sed dictum interdum sem eget ornare. Donec quis egestas odio. Nulla semper, augu
 
 Integer in lacinia metus. Phasellus ullamcorper tellus justo, a interdum sem placerat id. Suspendisse vestibulum libero sed molestie vehicula. Integer a ante accumsan, efficitur leo id, mattis elit. Duis eu mollis diam, sit amet semper urna. Aliquam mattis congue sapien sed interdum. Vivamus vehicula finibus felis, convallis vulputate augue venenatis eu. Quisque consectetur rhoncus efficitur. Morbi ornare est vel lectus blandit sagittis. Maecenas sed ornare urna.
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer condimentum ultricies lorem, sit amet elementum metus laoreet mollis. Aenean pulvinar suscipit tempor. Nullam in euismod ante. Donec et tortor dignissim quam semper finibus. Nulla viverra porttitor diam, et varius lorem gravida in. Donec justo dui, finibus id sagittis ut, molestie at mauris. Etiam non luctus diam. Nullam dictum pharetra ante quis eleifend. Nam suscipit porta sem, interdum ultricies nisi varius efficitur. Praesent sed scelerisque est.</tw-passagedata><tw-passagedata pid="9" name="stats01_page" tags="noreturn" position="1100,100" size="100,100">&lt;h2&gt;STAT PAGE 01&lt;/h2&gt;
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer condimentum ultricies lorem, sit amet elementum metus laoreet mollis. Aenean pulvinar suscipit tempor. Nullam in euismod ante. Donec et tortor dignissim quam semper finibus. Nulla viverra porttitor diam, et varius lorem gravida in. Donec justo dui, finibus id sagittis ut, molestie at mauris. Etiam non luctus diam. Nullam dictum pharetra ante quis eleifend. Nam suscipit porta sem, interdum ultricies nisi varius efficitur. Praesent sed scelerisque est.</tw-passagedata><tw-passagedata pid="9" name="stats01_page" tags="noreturn" position="1100,100" size="100,100">&lt;h2&gt;STAT PAGE 01&lt;/h2&gt;\
+&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;collapsible-container&quot;&gt;\
   &lt;button class=&quot;collapsible&quot;&gt;&lt;span&gt;collapsible 01&lt;/span&gt;&lt;/button&gt;\
   &lt;div class=&quot;content&quot;&gt;\
@@ -1014,9 +1041,9 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
     &lt;div class=&quot;content-inner&quot;&gt;
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida scelerisque lacus vel maximus. Quisque in varius tortor. Suspendisse auctor ultrices mauris, a tempor quam bibendum eget. Fusce at faucibus eros, at ullamcorper velit. Maecenas dignissim iaculis justo consequat consequat. Sed fringilla magna id neque scelerisque, eget varius elit mollis. Etiam vel maximus eros, vel feugiat purus.
 
-      Donec mauris metus, ullamcorper vel libero et, iaculis malesuada tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. In varius, urna at interdum tincidunt, massa dolor ultricies leo, venenatis tristique dui sem a nulla. Mauris et urna vitae lacus facilisis placerat nec nec erat. In laoreet nibh quis pellentesque fermentum. Mauris scelerisque velit et congue aliquam. Duis bibendum finibus erat, non ultricies leo scelerisque et. Pellentesque condimentum porta lorem in pretium. Phasellus facilisis lorem et eros blandit vulputate. Vivamus dignissim, erat sit amet mollis porta, sapien diam posuere tortor, quis convallis mi magna id arcu. Sed vulputate, justo id scelerisque egestas, ante purus aliquam tortor, vel tempor metus velit nec tortor. Duis vitae varius lacus. Praesent porttitor augue sit amet justo ultricies, sed suscipit diam cursus. Nullam sed risus sit amet ligula malesuada aliquet. Ut aliquam pharetra sapien ac porttitor. Integer luctus metus quis eros lacinia fermentum.
+      Donec mauris metus, ullamcorper vel libero et, iaculis malesuada tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. In varius, urna at interdum tincidunt, massa dolor ultricies leo, venenatis tristique dui sem a nulla. Mauris et urna vitae lacus facilisis placerat nec nec erat. In laoreet nibh quis pellentesque fermentum. Mauris scelerisque velit et congue aliquam. Duis bibendum finibus erat, non ultricies leo scelerisque et. 
 
-    &lt;/div&gt;
+    &lt;/div&gt;\
   &lt;/div&gt;\
 &lt;/div&gt;\
 
