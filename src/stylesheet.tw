@@ -1,12 +1,14 @@
 :: StoryStylesheet [stylesheet]
 /* FONT IMPORTS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pirata+One&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 @font-face {
   font-family: "Open Dyslexic";
   src: url("https://dl.dropbox.com/s/z61rc6kecqzn2pm/OpenDyslexic-Regular.woff2")format("woff2"),
-	url("https://dl.dropbox.com/s/7utsi12557865ty/OpenDyslexic-Regular.woff")format("woff"),
-    url("https://dl.dropbox.com/s/1q7eh2yte04g3z5/OpenDyslexic-Regular.otf")format("otf");
+	    url("https://dl.dropbox.com/s/7utsi12557865ty/OpenDyslexic-Regular.woff")format("woff"),
+      url("https://dl.dropbox.com/s/1q7eh2yte04g3z5/OpenDyslexic-Regular.otf")format("otf");
 }
+
 
 /* ICON IMPORT */
 @import url('https://cdn.jsdelivr.net/npm/css.gg/icons/all.css');
@@ -15,9 +17,11 @@
   --bodyfont: "Inter", sans-serif;
   --serif:  "Spectral", serif;
   --openDyslexic: 'Open Dyslexic', sans-serif;
+  --displayfont: "Pirata One", system-ui;
   --darkbg: #1a1a1a;
   --white: #d3d3d3;
   --accent: #ab996d;
+  --accent2: #c4b286;
 }
 
 .openDyslexic body {
@@ -92,10 +96,11 @@ a:hover {
 
 #game-title {
     color: var(--white);
-    font-family: var(--serif);
+    font-family: var(--displayfont);
     font-size: 28px;
     position: absolute;
-    left: 40px; 
+    left: 50px; 
+    letter-spacing: 5px;
     white-space: nowrap;
 }
 
@@ -103,7 +108,7 @@ a:hover {
     color: var(--white);
     font-family: var(--serif);
     position: absolute;
-    right: 30px;
+    right: 50px;
     display: flex;
     font-size: 18px;
     letter-spacing: 2px;
@@ -126,20 +131,16 @@ a:hover {
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: var(--accent);
+  background-color: var(--accent2);
   transform-origin: bottom left;
   transition: transform 0.4s ease-out;
 }
-#header-links div:hover {color:var(--accent);}
+#header-links div:hover {color:var(--accent2);}
 #header-links div:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 
-#header .header-text {
-  font-size: larger;
-  float: left;
-}
 
 /********************************
               FOOTER 
