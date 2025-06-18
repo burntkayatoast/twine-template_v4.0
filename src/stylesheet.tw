@@ -19,9 +19,12 @@
   --openDyslexic: 'Open Dyslexic', sans-serif;
   --displayfont: "Pirata One", system-ui;
   --darkbg: #1a1a1a;
-  --white: #d3d3d3;
+  --grey: #333;
+  --white: #ccc;
+  --white2:#c6c6c6;
   --accent: #ab996d;
   --accent2: #c4b286;
+  --red: #7d1c1f;
 }
 
 .openDyslexic body {
@@ -43,6 +46,16 @@ body {
   box-sizing: border-box;
   
 }
+.dark body {background-color: var(--darkbg);}
+
+#passage-container { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;  
+  box-sizing: border-box;
+}
 
 #passages {
   background-color: var(--white);
@@ -51,14 +64,22 @@ body {
   line-height: 1.6;
   width: 65vw;
   max-width: 1400px;
-  height: 50vh; 
-  margin: 0 auto;
+  max-height: 50vh; 
   margin-top: 5em;
-  padding: 1em;
+  padding: 0 1em;
   box-sizing: border-box;
   overflow-y: auto;
   text-align: justify;
   scrollbar-width: none;
+
+  /* New centering properties */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dark #passages {
+  background-color: var(--darkbg);
+  color: var(--white);
 }
 
 #passages::-webkit-scrollbar {display: none;}
@@ -81,46 +102,60 @@ a:hover {
         HEADER + NAV 
 ********************************/
 #header {
-    background-color: var(--darkbg);
-    border-bottom: 2px solid var(--white);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 10%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 20px; 
-    box-sizing: border-box;
+  background-color: var(--darkbg);
+  border-bottom: 2px solid var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px; 
+  box-sizing: border-box;
+}
+.dark #header { 
+  background-color: var(--white2);
+  border-bottom: 2px solid var(--white2);
 }
 
 #game-title {
-    color: var(--white);
-    font-family: var(--displayfont);
-    font-size: 28px;
-    position: absolute;
-    left: 50px; 
-    letter-spacing: 5px;
-    white-space: nowrap;
+  color: var(--white);
+  font-family: var(--displayfont);
+  font-size: 28px;
+  position: absolute;
+  left: 50px; 
+  letter-spacing: 7px;
+  white-space: nowrap;
+}
+.dark #game-title { 
+  color: var(--darkbg);
+}
+
+#mobile-title { 
+  display: none;
 }
 
 #header-links {
-    color: var(--white);
-    font-family: var(--serif);
-    position: absolute;
-    right: 50px;
-    display: flex;
-    font-size: 18px;
-    letter-spacing: 2px;
-    gap: 2em;
+  font-family: var(--serif);
+  position: absolute;
+  right: 50px;
+  display: flex;
+  font-size: 18px;
+  letter-spacing: 2px;
+  gap: 2em;
 }
 
-#header-links div {
+#header-links div, #footer-links div {
   color: var(--white);
+  font-weight: bold;
   position: relative;
   cursor: pointer;
-  transition: color .3s ease-in-out;
-  padding: 4px;
+  transition: .3s ease-in-out;
+  padding: 5px;
+}
+.dark #header-links div { 
+  color: var(--darkbg);
 }
 
 #header-links div:after, #footer-links div:after {
@@ -128,14 +163,19 @@ a:hover {
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 1px;
+  height: 2px;
   bottom: 0;
   left: 0;
   background-color: var(--accent2);
   transform-origin: bottom left;
   transition: transform 0.4s ease-out;
 }
+.dark #header-links div:after, #footer-links div:after { 
+  background-color: var(--darkbg);
+}
+
 #header-links div:hover {color:var(--accent2);}
+.dark #header-links div:hover {color:var(--darkbg);}
 #header-links div:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
@@ -145,6 +185,350 @@ a:hover {
 /********************************
               FOOTER 
 ********************************/
-#footer {
-  display: none;
+#footer {display: none;}
+
+/********************************
+            DIALOG BOX
+********************************/
+/* basic */
+#ui-dialog { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: 1em; 
+  width: auto;
+  inset: auto !important; 
+  border: 1px solid var(--white);
+  color: var(--darkbg);
+}
+.dark #ui-dialog { 
+  border: 1px solid var(--darkbg);
+  color: var(--white);
+}
+
+#ui-dialog-body {
+  max-height: 70vh;
+  text-align: center;
+  background-color: var(--white);
+  border: none;
+  overflow: auto;
+}
+.dark #ui-dialog-body { 
+  background-color: var(--darkbg);
+}
+
+#ui-dialog-title {
+  font-family: var(--displayfont);
+  font-size: 26px;
+  text-transform: lowercase;
+  color: var(--darkbg);
+  text-align: center;
+  background-color: var(--white);
+  padding: 1.5em;
+  margin: 0;
+  letter-spacing: 3px;
+  font-weight: normal;
+  border-bottom: .3px solid var(--grey);
+}
+.dark #ui-dialog-title { 
+  color: var(--white);
+  background-color: var(--darkbg);
+}
+
+#ui-dialog-titlebar {
+  border-bottom: 1px solid var(--white);
+}
+.dark #ui-dialog-titlebar { 
+  border-bottom: 1px solid var(--darkbg);
+}
+#ui-dialog-close {
+  background: none;
+  font-size: 18px;
+  border: none;
+  color: var(--accent2);
+  transition: color .3s ease-in-out;
+}
+
+#ui-dialog-close:hover {
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: var(--red);
+}
+
+/* saves */
+#ui-dialog-body.saves > h2 {display: none;}
+
+#ui-dialog-body.saves #saves-list {
+  border-collapse: none;
+  border: none;
+}
+#ui-dialog-body.saves #saves-list td {
+  padding: 12px !important;
+}
+
+#ui-dialog-body.saves #saves-list button {
+  border: none;
+  font-family: var(--bodyfont);
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+}
+
+#ui-dialog-body.saves #saves-list button.load:not(:disabled) {
+  background: none;
+  border: none;
+}
+#ui-dialog-body.saves #saves-list button.delete:not(:disabled) {
+  background: none;
+  border: none;
+}
+
+#ui-dialog-body.saves #saves-list button.load:hover, #ui-dialog-body.saves #saves-list button.save:hover, #ui-dialog-body.saves #saves-list button.delete:hover {
+  background: none !important;
+}
+
+
+#ui-dialog-body.saves #saves-list button.load::before {
+  content: "load"; 
+  font-size: inherit;
+  color: var(--darkbg); 
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  padding: .5em;
+  background: none;
+  font-family: var(--bodyfont) !important;
+}
+.dark #ui-dialog-body.saves #saves-list button.load::before { 
+  color: var(--white);
+}
+
+#ui-dialog-body.saves #saves-list button.save::before {
+  content: "save"; 
+  font-size: inherit;
+  color: var(--darkbg); 
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  padding: .5em;
+  background: none;
+  font-family: var(--bodyfont) !important;
+}
+.dark #ui-dialog-body.saves #saves-list button.save::before { 
+  color: var(--white);
+}
+
+#ui-dialog-body.saves #saves-list button.delete::before {
+  content: "delete"; 
+  font-size: inherit;
+  color: var(--darkbg); 
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  padding: .5em;
+  background: none;
+  font-family: var(--bodyfont) !important;
+}
+.dark #ui-dialog-body.saves #saves-list button.delete::before { 
+  color: var(--white);
+}
+
+#ui-dialog-body.saves .buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: .5em;
+  padding: .5em;
+}
+#ui-dialog-body.saves button {
+  background: none !important;
+  letter-spacing: 1px;
+  border: none;
+  color: var(--accent);
+  transition: color .3s ease-in-out;
+
+}
+
+/* settings */
+#ui-dialog-body.settings {
+  text-align: left !important;
+  padding: 1.5em !important;
+}
+
+#ui-dialog-body.settings button, #ui-dialog-body.restart button {
+  background: none;
+  border: none;
+  text-transform: lowercase;
+  color: var(--darkbg);
+  letter-spacing: 2px;
+  transition: color .3s ease-in-out;
+}
+.dark #ui-dialog-body.settings button, #ui-dialog-body.restart button { 
+  color: var(--accent);
+}
+
+#ui-dialog-body.settings button:hover, #ui-dialog-body.saves button:hover {
+  color: var(--accent2) !important;
+}
+
+#ui-dialog-body.settings .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#ui-dialog-body.settings button[id|=setting-control] { 
+  background-color: var(--white);
+  color: var(--darkbg);
+  border: 1px solid var(--darkbg);
+}
+.dark #ui-dialog-body.settings button[id|=setting-control] { 
+  background-color: var(--darkbg);
+  color: var(--white);
+  border: 1px solid var(--white2);
+}
+
+#ui-dialog-body.settings button[id|="setting-control"].enabled {
+  background-color: var(--accent2);
+  border: 1px solid var(--grey);
+  transition: .3s ease-in-out;
+}
+.dark #ui-dialog-body.settings button[id|="setting-control"].enabled { 
+  background-color: var(--accent2);
+  border: 1px solid var(--white2);
+  color: var(--darkbg);
+}
+
+#ui-dialog-body.settings button[id|="setting-control"].enabled:hover {
+  border: 1px solid var(--grey);
+  background: none !important;
+}
+
+.dark #ui-dialog-body.settings button[id|="setting-control"].enabled:hover { 
+  border: 1px solid var(--white2);
+}
+
+#ui-dialog-body #setting-control-theme, #ui-dialog-body #setting-control-fontsize, #ui-dialog-body #setting-control-fontfamily {
+  background-color: var(--white);
+  border: 1px solid var(--darkbg);
+  color: var(--darkbg);
+}
+.dark #ui-dialog-body #setting-control-theme, .dark #ui-dialog-body #setting-control-fontsize, .dark #ui-dialog-body #setting-control-fontfamily { 
+  background-color: var(--darkbg);
+  border: 1px solid var(--white2);
+  color: var(--white2);
+}
+
+#ui-dialog-body #setting-control-theme:hover, #ui-dialog-body #setting-control-fontsize:hover, #ui-dialog-body #setting-control-fontfamily:hover {
+  background-color: var(--white);
+  border: 1px solid var(--darkbg);
+  color: var(--darkbg);
+}
+.dark #ui-dialog-body #setting-control-theme:hover, .dark #ui-dialog-body #setting-control-fontsize:hover, .dark #ui-dialog-body #setting-control-fontfamily:hover { 
+  background-color: var(--darkbg);
+  border: 1px solid var(--white2);
+  color: var(--white2);
+}
+
+
+/********************************
+              MOBILE 
+********************************/
+@media screen and (max-width: 1100px) {
+  #passages { 
+    width: 95%;
+    max-height: 75vh;
+    margin-top: 1em;
+  }
+  #header { 
+    height: 7%;
+    justify-content: center;
+  }
+  #header-links { 
+    display: none;
+  }
+  #game-title { 
+    position: static;
+    left: auto;
+    font-size: 20px;
+  }
+  
+  /* FOOTER */
+  #footer {
+    display: flex;
+    background-color: var(--darkbg);
+    border-top: 2px solid var(--white);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 6.5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px; 
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  .dark #footer { 
+    background-color: var(--white2);
+  }
+
+  #footer-links { 
+    font-family: var(--serif);
+    position: absolute;
+    display: flex;
+    font-size: 15.5px;
+    letter-spacing: 2px;
+    gap: 2em;
+  }
+
+  #footer-links div {
+    color: var(--white);
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    padding: 5px;
+  }
+  .dark #footer-links div {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:hover {
+    color: var(--accent2);
+  }
+  .dark #footer-links div:hover {
+    color: var(--darkbg);
+  }
+  
+  #footer-links div:after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent2);
+    transform-origin: bottom left;
+    transition: transform 0.4s ease-out;
+  }
+  .dark #footer-links div:after {
+    background-color: var(--darkbg);
+  }
+  
+  #footer-links div:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  #navigation-links a { 
+    display: block;
+    color: var(--darkbg);
+    transition: .4s ease-in-out;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+  }
+  .dark #navigation-links a { 
+    color: var(--white);
+  }
+  #navigation-links a:hover { 
+    color: var(--accent);
+  }
 }
