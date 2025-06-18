@@ -68,7 +68,7 @@ Config.saves.isAllowed = function (saveType) {
 
 // Automatically generate save descriptions
 Config.saves.descriptions = function (saveType) {
-    const chapter = State.getVar("$gamechapter") || "Unknown Chapter"; // Default to "Unknown Chapter" if $gamechapter is not set
+    const chapter = State.getVar("$chapter") || "Unknown Chapter"; // Default to "Unknown Chapter" if $gamechapter is not set
     const name = State.getVar("$name") || "Unnamed"; // Default to "Unnamed" if $name is not set
 
     // Format the save description as "Chapter - Name"
@@ -94,16 +94,12 @@ function lock (orientation) {
 
 /*--------- SETTINGS -------- */
 // change font size 
-var settingFontSize = ["16px", "17px", "18px", "19px", "20px", "21px", "22px"];
+var settingFontSize = ["17px", "18px", "19px", "20px", "21px", "22px"];
 var resizeFont = function() {
     var size = document.getElementById('passages');
     var dialogBody = document.getElementById('ui-dialog-body'); // Select the dialog box body
 
     switch (settings.fontSize) { 
-        case "16px":
-            size.style.fontSize = "16px";
-            if (dialogBody) dialogBody.style.fontSize = "16px"; // Update dialog font size
-            break;
         case "17px":
             size.style.fontSize = "17px";
             if (dialogBody) dialogBody.style.fontSize = "17px";
@@ -133,7 +129,7 @@ var resizeFont = function() {
 Setting.addList("fontSize", {
 	label		: "Change Font Size",
 	list		: settingFontSize,
-    default     : "16px",
+  default     : "17px",
 	onInit		: resizeFont,
 	onChange	: resizeFont
 });
@@ -165,17 +161,17 @@ Setting.addList("fontFamily", {
 var settingThemeNames = ["Dark", "Light"];
 var settingThemeHandler = function () {
 	var $html = $("html");
-	$html.removeClass("light");
+	$html.removeClass("dark");
 	switch (settings.theme) {
-	case "Light":
-		$html.addClass("light");
+	case "Dark":
+		$html.addClass("dark");
 		break;
 	}
 };
 Setting.addList("theme", {
 	label    : "Switch display mode",
 	list     : settingThemeNames,
-	default	 : "Dark",
+	default	 : "Light",
 	onInit   : settingThemeHandler,
 	onChange : settingThemeHandler
 });
