@@ -1,4 +1,6 @@
 :: StoryScript [script]
+importStyles('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+
 // collapsible button
 $(document).on(":passagedisplay", function () {
   console.log("Passage displayed!"); // Debugging line
@@ -68,7 +70,7 @@ Config.saves.isAllowed = function (saveType) {
 
 // Automatically generate save descriptions
 Config.saves.descriptions = function (saveType) {
-    const chapter = State.getVar("$chapter") || "Unknown Chapter"; // Default to "Unknown Chapter" if $gamechapter is not set
+    const chapter = State.getVar("$chapter") || "Unknown Chapter"; // Default to "Unknown Chapter" if $chapter is not set
     const name = State.getVar("$name") || "Unnamed"; // Default to "Unnamed" if $name is not set
 
     // Format the save description as "Chapter - Name"
@@ -158,12 +160,12 @@ Setting.addList("fontFamily", {
 
 
 // change theme
-var settingThemeNames = ["starlight", "midnight", "sunlight"];
+var settingThemeNames = ["starlight", "moonlight", "sunlight"];
 var settingThemeHandler = function () {
 	var $html = $("html");
 	$html.removeClass("dark sun");
 	switch (settings.theme) {
-	case "midnight":
+	case "moonlight":
 		$html.addClass("dark");
 		break;
   case "sunlight":
