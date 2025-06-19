@@ -1,5 +1,6 @@
 :: stats01_page [noreturn]
-<h2>STAT PAGE 01</h2>\
+<h2>stat page 01</h2>\
+<<link "<div class='return'>— RETURN —</div>" $return>><</link>>
 <div class="divider"></div>
 <div class="collapsible-container">\
   <button class="collapsible"><span>collapsible 01</span></button>\
