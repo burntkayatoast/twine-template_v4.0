@@ -110,6 +110,7 @@ h2 {
   font-family: var(--displayfont);
 }
 
+/* divider */
 .divider { 
   width: 100%;
   height: 2.5px;
@@ -136,6 +137,7 @@ h2 {
         transparent);
 }
 
+/* line text line */
 .LTL {
   display: flex;
   align-items: center;
@@ -145,6 +147,15 @@ h2 {
   width: 100%;
   margin: 1em 0;
 }
+
+.LTL span { 
+  font-family: var(--displayfont);
+  color: var(--grey);
+  font-size: 225%;
+}
+.dark .LTL span, .sun .LTL span { 
+  color: var(--white);
+} 
 
 .LTL::before,
 .LTL::after {
@@ -163,16 +174,51 @@ h2 {
     var(--darkbg)
   );
 }
+.dark .LTL:not(:empty)::before, .sun .LTL:not(:empty)::before { 
+  background: linear-gradient(
+    to right, 
+    transparent,
+    rgba(198, 198, 198, 0.4),
+    rgba(198, 198, 198, 0.7),
+    var(--white)
+  );
+}
 
 .LTL:not(:empty)::after {
   margin-left: 0.5em;
   background: linear-gradient(
     to left, 
     transparent,
-    rgba(26, 26, 26, 0.4),
+    rgba(26, 26, 26, 0.45),
     rgba(26, 26, 26, 0.7),
     var(--darkbg)
   );
+}
+
+.dark .LTL:not(:empty)::after, .sun .LTL:not(:empty)::after { 
+  background: linear-gradient(
+    to left, 
+    transparent,
+    rgba(198, 198, 198, 0.45),
+    rgba(198, 198, 198, 0.7),
+    var(--white)
+  );
+}
+
+/* chapter title */
+.chapter-title { 
+  font-family: var(--displayfont);
+  text-transform: capitalize;
+  font-size: 300%;
+  margin-top: -.3em;
+  letter-spacing: 15px;
+  text-align: center !important;
+  padding: 0;
+  font-weight: bold;
+  color: var(--grey);
+}
+.dark .chapter-title, .sun .chapter-title { 
+  color: var(--white);
 }
 /********************************
           STAT PAGES
