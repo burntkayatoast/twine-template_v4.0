@@ -9,7 +9,6 @@
       url("https://dl.dropbox.com/s/1q7eh2yte04g3z5/OpenDyslexic-Regular.otf")format("otf");
 }
 
-
 /* ICON IMPORT */
 @import url('https://cdn.jsdelivr.net/npm/css.gg/icons/all.css');
 
@@ -18,6 +17,7 @@
   --serif:  "Spectral", serif;
   --openDyslexic: 'Open Dyslexic', sans-serif;
   --displayfont: "Pirata One", system-ui;
+
   --darkbg: #1a1a1a;
   --grey: #333;
   --white: #c6c6c6;
@@ -45,7 +45,7 @@ body {
   box-sizing: border-box;
   
 }
-.dark body {background-color: var(--darkbg);}
+.dark body, .sun body {background-color: var(--darkbg);}
 
 #passage-container { 
   display: flex;
@@ -76,7 +76,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.dark #passages {
+.dark #passages, .sun #passages {
   background-color: var(--darkbg);
   color: var(--white);
 }
@@ -123,7 +123,7 @@ h2 {
         transparent);
   border: none;
 }
-.dark .divider { 
+.dark .divider, .sun .divider { 
   background: linear-gradient(to right,
         transparent,
         rgba(198, 198, 198, 0.4),
@@ -160,7 +160,7 @@ h2 {
   text-transform: uppercase;
   padding: 1.5em 0;
 }
-.dark .collapsible { 
+.dark .collapsible, .sun .collapsible { 
   background-color: var(--white);
   color: var(--darkbg);
 }
@@ -186,7 +186,7 @@ h2 {
 .collapsible:hover:after { 
   color: var(--darkbg);
 }
-.dark .collapsible:after { 
+.dark .collapsible:after, .sun .collapsible:after { 
   color: var(--darkbg);
 }
 
@@ -205,7 +205,7 @@ h2 {
   margin-top: -1px;
 }
 
-.dark .content { 
+.dark .content, .sun .content { 
   background-color: var(--grey);
   color: var(--white);
 }
@@ -234,6 +234,10 @@ h2 {
   background-color: var(--white);
   border-bottom: 2px solid var(--white);
 }
+.sun #header { 
+  background-color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
 
 #game-title {
   color: var(--white);
@@ -244,7 +248,7 @@ h2 {
   letter-spacing: 7px;
   white-space: nowrap;
 }
-.dark #game-title { 
+.dark #game-title, .sun #game-title { 
   color: var(--darkbg);
 }
 
@@ -270,7 +274,7 @@ h2 {
   transition: .3s ease-in-out;
   padding: 5px;
 }
-.dark #header-links div { 
+.dark #header-links div, .sun #header-links div { 
   color: var(--darkbg);
 }
 
@@ -286,12 +290,12 @@ h2 {
   transform-origin: bottom left;
   transition: transform 0.4s ease-out;
 }
-.dark #header-links div:after, #footer-links div:after { 
+.dark #header-links div:after, #footer-links div:after, .sun #header-links div:after, #footer-links div:after { 
   background-color: var(--darkbg);
 }
 
 #header-links div:hover {color:var(--accent2);}
-.dark #header-links div:hover {color:var(--darkbg);}
+.dark #header-links div:hover, .sun #header-links div:hover {color:var(--darkbg);}
 #header-links div:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
@@ -317,7 +321,7 @@ h2 {
   border: 1px solid var(--white);
   color: var(--darkbg);
 }
-.dark #ui-dialog { 
+.dark #ui-dialog, .sun #ui-dialog { 
   border: 1px solid var(--darkbg);
   color: var(--white);
 }
@@ -329,7 +333,7 @@ h2 {
   border: none;
   overflow: auto;
 }
-.dark #ui-dialog-body { 
+.dark #ui-dialog-body, .sun #ui-dialog-body { 
   background-color: var(--darkbg);
 }
 
@@ -346,7 +350,7 @@ h2 {
   font-weight: normal;
   border-bottom: .3px solid var(--grey);
 }
-.dark #ui-dialog-title { 
+.dark #ui-dialog-title, .sun #ui-dialog-title { 
   color: var(--white);
   background-color: var(--darkbg);
 }
@@ -354,7 +358,7 @@ h2 {
 #ui-dialog-titlebar {
   border-bottom: 1px solid var(--white);
 }
-.dark #ui-dialog-titlebar { 
+.dark #ui-dialog-titlebar, .sun #ui-dialog-titlebar { 
   border-bottom: 1px solid var(--darkbg);
 }
 #ui-dialog-close {
@@ -415,7 +419,7 @@ h2 {
   background: none;
   font-family: var(--bodyfont) !important;
 }
-.dark #ui-dialog-body.saves #saves-list button.load::before { 
+.dark #ui-dialog-body.saves #saves-list button.load::before, .sun #ui-dialog-body.saves #saves-list button.load::before { 
   color: var(--white);
 }
 
@@ -429,7 +433,7 @@ h2 {
   background: none;
   font-family: var(--bodyfont) !important;
 }
-.dark #ui-dialog-body.saves #saves-list button.save::before { 
+.dark #ui-dialog-body.saves #saves-list button.save::before, .sun #ui-dialog-body.saves #saves-list button.save::before { 
   color: var(--white);
 }
 
@@ -443,7 +447,7 @@ h2 {
   background: none;
   font-family: var(--bodyfont) !important;
 }
-.dark #ui-dialog-body.saves #saves-list button.delete::before { 
+.dark #ui-dialog-body.saves #saves-list button.delete::before, .sun #ui-dialog-body.saves #saves-list button.delete::before { 
   color: var(--white);
 }
 
@@ -476,7 +480,7 @@ h2 {
   letter-spacing: 2px;
   transition: color .3s ease-in-out;
 }
-.dark #ui-dialog-body.settings button, #ui-dialog-body.restart button { 
+.dark #ui-dialog-body.settings button, #ui-dialog-body.restart button, .sun #ui-dialog-body.settings button, #ui-dialog-body.restart button { 
   color: var(--accent);
 }
 
@@ -494,7 +498,7 @@ h2 {
   color: var(--darkbg);
   border: 1px solid var(--darkbg);
 }
-.dark #ui-dialog-body.settings button[id|=setting-control] { 
+.dark #ui-dialog-body.settings button[id|=setting-control], .sun #ui-dialog-body.settings button[id|=setting-control] { 
   background-color: var(--darkbg);
   color: var(--white);
   border: 1px solid var(--white);
@@ -505,7 +509,7 @@ h2 {
   border: 1px solid var(--grey);
   transition: .3s ease-in-out;
 }
-.dark #ui-dialog-body.settings button[id|="setting-control"].enabled { 
+.dark #ui-dialog-body.settings button[id|="setting-control"].enabled, .sun #ui-dialog-body.settings button[id|="setting-control"].enabled { 
   background-color: var(--accent2);
   border: 1px solid var(--white);
   color: var(--darkbg);
@@ -516,7 +520,7 @@ h2 {
   background: none !important;
 }
 
-.dark #ui-dialog-body.settings button[id|="setting-control"].enabled:hover { 
+.dark #ui-dialog-body.settings button[id|="setting-control"].enabled:hover, .sun  #ui-dialog-body.settings button[id|="setting-control"].enabled:hover { 
   border: 1px solid var(--white);
 }
 
@@ -525,7 +529,7 @@ h2 {
   border: 1px solid var(--darkbg);
   color: var(--darkbg);
 }
-.dark #ui-dialog-body #setting-control-theme, .dark #ui-dialog-body #setting-control-fontsize, .dark #ui-dialog-body #setting-control-fontfamily { 
+.dark #ui-dialog-body #setting-control-theme, .dark #ui-dialog-body #setting-control-fontsize, .dark #ui-dialog-body #setting-control-fontfamily, .sun #ui-dialog-body #setting-control-theme, .sun #ui-dialog-body #setting-control-fontsize, .sun #ui-dialog-body #setting-control-fontfamily { 
   background-color: var(--darkbg);
   border: 1px solid var(--white);
   color: var(--white);
@@ -536,7 +540,7 @@ h2 {
   border: 1px solid var(--darkbg);
   color: var(--darkbg);
 }
-.dark #ui-dialog-body #setting-control-theme:hover, .dark #ui-dialog-body #setting-control-fontsize:hover, .dark #ui-dialog-body #setting-control-fontfamily:hover { 
+.dark #ui-dialog-body #setting-control-theme:hover, .dark #ui-dialog-body #setting-control-fontsize:hover, .dark #ui-dialog-body #setting-control-fontfamily:hover, .sun #ui-dialog-body #setting-control-theme:hover, .sun #ui-dialog-body #setting-control-fontsize:hover, .sun #ui-dialog-body #setting-control-fontfamily:hover { 
   background-color: var(--darkbg);
   border: 1px solid var(--white);
   color: var(--white);
@@ -581,7 +585,7 @@ h2 {
     box-sizing: border-box;
     justify-content: center;
   }
-  .dark #footer { 
+  .dark #footer, .sun #footer { 
     background-color: var(--white);
   }
 
@@ -602,14 +606,14 @@ h2 {
     transition: .3s ease-in-out;
     padding: 5px;
   }
-  .dark #footer-links div {
+  .dark #footer-links div, .sun #footer-links div {
     color: var(--darkbg);
   }
   
   #footer-links div:hover {
     color: var(--accent2);
   }
-  .dark #footer-links div:hover {
+  .dark #footer-links div:hover, .sun #footer-links div:hover {
     color: var(--darkbg);
   }
   
@@ -625,7 +629,7 @@ h2 {
     transform-origin: bottom left;
     transition: transform 0.4s ease-out;
   }
-  .dark #footer-links div:after {
+  .dark #footer-links div:after, .sun #footer-links div:after {
     background-color: var(--darkbg);
   }
   
@@ -641,7 +645,7 @@ h2 {
     margin-bottom: 10px;
     letter-spacing: 3px;
   }
-  .dark #navigation-links a { 
+  .dark #navigation-links a, .sun #navigation-links a { 
     color: var(--white);
   }
   #navigation-links a:hover { 
