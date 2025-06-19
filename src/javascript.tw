@@ -158,20 +158,23 @@ Setting.addList("fontFamily", {
 
 
 // change theme
-var settingThemeNames = ["Dark", "Light"];
+var settingThemeNames = ["starlight", "midnight", "sunlight"];
 var settingThemeHandler = function () {
 	var $html = $("html");
-	$html.removeClass("dark");
+	$html.removeClass("dark sun");
 	switch (settings.theme) {
-	case "Dark":
+	case "midnight":
 		$html.addClass("dark");
+		break;
+  case "sunlight":
+		$html.addClass("sun");
 		break;
 	}
 };
 Setting.addList("theme", {
 	label    : "Switch display mode",
 	list     : settingThemeNames,
-	default	 : "Light",
+	default	 : "starlight",
 	onInit   : settingThemeHandler,
 	onChange : settingThemeHandler
 });
