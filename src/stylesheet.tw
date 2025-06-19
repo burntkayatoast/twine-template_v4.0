@@ -10,7 +10,7 @@
 }
 
 /* ICON IMPORT */
-@import url('https://cdn.jsdelivr.net/npm/css.gg/icons/all.css');
+
 
 :root {
   --bodyfont: "Inter", sans-serif;
@@ -104,20 +104,21 @@ a:hover {
 ********************************/
 h2 { 
   text-align: center;
-  font-size: 500%;
+  font-size: 450%;
   letter-spacing: 5px;
   margin: 0;
+  font-family: var(--displayfont);
 }
 
 .divider { 
   width: 100%;
-  height: 2px;
+  height: 2.5px;
   background: linear-gradient(to right,
         transparent,
         rgba(26, 26, 26, 0.4),  /* 1a1a1a at 30% opacity */
         rgba(26, 26, 26, 0.7),  /* 1a1a1a at 70% opacity */
         var(--darkbg),
-        var(--darkbg),                /* Full color in middle */
+        var(--darkbg),            /* Full color in middle */
         rgba(26, 26, 26, 0.7),
         rgba(26, 26, 26, 0.4),
         transparent);
@@ -133,6 +134,66 @@ h2 {
         rgba(198, 198, 198, 0.7),
         rgba(198, 198, 198, 0.4),
         transparent);
+}
+
+.LTL {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 1.2em;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.LTL::before,
+.LTL::after {
+  content: '';
+  flex: 1;
+  height: 2.5px;
+}
+
+.LTL:not(:empty)::before {
+  margin-right: 0.5em;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(26, 26, 26, 0.4),
+    rgba(26, 26, 26, 0.7),
+    var(--darkbg)
+  );
+}
+
+.LTL:not(:empty)::after {
+  margin-left: 0.5em;
+  background: linear-gradient(
+    to left, 
+    transparent,
+    rgba(26, 26, 26, 0.4),
+    rgba(26, 26, 26, 0.7),
+    var(--darkbg)
+  );
+}
+/********************************
+          STAT PAGES
+********************************/
+.return { 
+  font-family: var(--displayfont);
+  color: var(--accent);
+  font-size: 190%;
+  letter-spacing: 10px;
+  text-align: center !important;
+  transition: .4s ease-in-out;
+}
+.dark .return, .sun .return { 
+  color: var(--accent);
+}
+
+.return:hover { 
+  color: var(--red);
+}
+.dark .return:hover, .sun .return:hover { 
+  color: var(--accent2);
 }
 
 /********************************
@@ -215,6 +276,91 @@ h2 {
 }
 
 /********************************
+            NOTIFY   
+********************************/
+#notify { 
+  position: fixed;
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--accent2);
+  color: var(--darkbg);
+  bottom: -5vh;
+  width: 100%;
+  padding: 0;
+  transition: max-height .4s ease,
+              bottom .4s ease,
+              padding .4s ease;
+}
+
+#notify.open { 
+  bottom: 0;
+  max-height: 5vh;
+  padding: 2em 0;
+}
+
+.notify-title { 
+  font-family: var(--displayfont);
+  color: var(--red);
+  transition: .4s ease-in-out;
+  font-size: 122%;
+  letter-spacing: 1px;
+}
+.dark .notify-title, .sun .notify-title { 
+  color: var(--accent);
+}
+
+.notify-title:hover { 
+  color: var(--accent);
+}
+.dark .notify-title:hover, .sun .notify-title:hover { 
+  color: var(--white);
+}
+
+/********************************
+          CHOICE BTN   
+********************************/
+
+.choice {
+  border-radius:3px;
+  color: var(--darkbg);
+  padding: 0.5em;
+  transition: 0.3s ease-in-out;
+}
+.dark .choice, .sun .choice { 
+  color: var(--white);
+}
+.choice:before {
+  content: '✦';
+  color: var(--accent);
+  margin-right: 7px;
+}
+.choice:hover {color:var(--darkbg);}
+.dark .choice:hover, .sun .choice:hover { 
+  color: var(--accent);
+}
+
+.choicebtn {
+  display:block;
+  align-items:center;
+  justify-content:center;
+}
+.choicebtn:hover .choice {
+  opacity:.6;
+  transform: scale(.98);
+  box-shadow:none;
+}
+.choicebtn:hover .choice:hover{
+  transform:scale(1);
+  opacity:1;
+}
+
+.choice-cont { 
+  width: 80%;
+  margin: 0 auto;
+}
+
+/********************************
         HEADER + NAV 
 ********************************/
 #header {
@@ -250,10 +396,6 @@ h2 {
 }
 .dark #game-title, .sun #game-title { 
   color: var(--darkbg);
-}
-
-#mobile-title { 
-  display: none;
 }
 
 #header-links {
@@ -480,7 +622,7 @@ h2 {
   letter-spacing: 2px;
   transition: color .3s ease-in-out;
 }
-.dark #ui-dialog-body.settings button, #ui-dialog-body.restart button, .sun #ui-dialog-body.settings button, #ui-dialog-body.restart button { 
+.dark #ui-dialog-body.settings button, .dark #ui-dialog-body.restart button, .sun #ui-dialog-body.settings button, .sun #ui-dialog-body.restart button { 
   color: var(--accent);
 }
 
@@ -573,7 +715,7 @@ h2 {
   #footer {
     display: flex;
     background-color: var(--darkbg);
-    border-top: 2px solid var(--white);
+    border-top: 2px solid var(--darkbg);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -585,8 +727,13 @@ h2 {
     box-sizing: border-box;
     justify-content: center;
   }
-  .dark #footer, .sun #footer { 
+  .dark #footer { 
     background-color: var(--white);
+    border-top: 1px solid var(--white);
+  }
+  .sun #footer { 
+    background-color: var(--accent);
+    border-top: 1px solid var(--accent);
   }
 
   #footer-links { 
@@ -642,8 +789,9 @@ h2 {
     display: block;
     color: var(--darkbg);
     transition: .4s ease-in-out;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
     letter-spacing: 3px;
+    font-size: 112%;
   }
   .dark #navigation-links a, .sun #navigation-links a { 
     color: var(--white);
@@ -665,5 +813,10 @@ h2 {
 
   h2 { 
     font-size: 300%;
+  }
+
+  /* choice btn */
+  .choice-cont { 
+    width: 100%;
   }
 }
