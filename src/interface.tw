@@ -11,7 +11,6 @@
             <div id="stat02" data-passage="stats02">stats02.</div>
             <div id="restart">restart.</div>
         </div>
-        <div id="mobile-title" data-passage="mobile_title"></div>
     </div>
 
     <!-- you must have one element with #id of 'passages' --> 
@@ -29,9 +28,6 @@
 
 :: header-title
 Twine Template — $chapter
-
-:: mobile_title
-$gamechapter 
 
 :: mobile_menu 
 <<link "navigation">>
