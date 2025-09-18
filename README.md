@@ -30,3 +30,10 @@ Contains data for the template, such as what format it uses (Sugarcube), storyTi
 
 ### 5. storyinit.tw
 Used to store variables/widgets when creating an interactive fiction. 
+
+---
+## MOBILE IMG
+<img width="1005" height="1145" alt="image" src="https://github.com/user-attachments/assets/7b64e10a-7404-4562-a9d8-6ec9471fc895" />
+
+## DESKTOP IMG
+<img width="2015" height="1149" alt="Screenshot 2025-09-18 200600" src="https://github.com/user-attachments/assets/41e4c926-6d72-4c4e-85b4-744716eb410b" />
