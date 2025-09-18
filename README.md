@@ -1,0 +1,31 @@
+# <p align="center>TWINE TEMPLATE</p>
+### <p align="center">README</p>
+
+---
+A sugarcube formatted template made in twine/twee3 for interactive fictions.
+
+### Main Files
+1. interface
+2. javascript
+3. stylesheet
+4. storydata
+5. storyinit
+
+---
+### 1. interface.tw
+Contains code for the templates UI and layout.
+
+### 2. javascript.tw
+Contains code for externally sourced macros and custom settins, including:
+- collapsible button to hide/display information.
+- settings to change: font, font-size, themes.
+- Notifications, autosave, fullscreen portrait. 
+
+### 3. stylesheet.tw
+Contains CSS for styling the UI, along with buttons and layouts. 
+
+### 4. storydata.tw
+Contains data for the template, such as what format it uses (Sugarcube), storyTitle and IFID.
+
+### 5. storyinit.tw
+Used to store variables/widgets when creating an interactive fiction. 
