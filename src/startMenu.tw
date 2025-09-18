@@ -1,6 +1,6 @@
 :: StartMenu
-<div class="LTL"><span>00 - Act I</span></div>\
-<div class="chapter-title">of old blood</div>
+<div class="LTL"><span>chapter no.</span></div>\
+<div class="chapter-title">chapter name</div>
 <div class="divider"></div>
 
 <<link "<span class='notify-title'>testing the notif btn</span>">>
