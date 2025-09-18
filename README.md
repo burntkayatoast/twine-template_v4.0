@@ -1,4 +1,4 @@
-# <p align="center>TWINE TEMPLATE</p>
+# <p align="center">TWINE TEMPLATE</p>
 ### <p align="center">README</p>
 
 ---
