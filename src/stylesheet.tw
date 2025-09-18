@@ -436,13 +436,30 @@ h2 {
   font-family: var(--displayfont);
   font-size: 28px;
   position: absolute;
+  text-transform: capitalize;
   left: 50px; 
-  letter-spacing: 7px;
+  letter-spacing: 5px;
   white-space: nowrap;
 }
 .dark #game-title, .sun #game-title { 
   color: var(--darkbg);
 }
+
+#mobile-title {
+  display: none;
+  color: var(--white);
+  font-family: var(--displayfont);
+  text-transform: capitalize;
+  font-size: 28px;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  position: absolute;
+  left: auto;
+}
+.dark #mobile-title, .sun #mobile-title { 
+  color: var(--darkbg);
+}
+
 
 #header-links {
   font-family: var(--serif);
@@ -453,7 +470,6 @@ h2 {
   letter-spacing: 2px;
   gap: 2em;
 }
-
 #header-links div, #footer-links div {
   color: var(--white);
   font-weight: bold;
@@ -752,9 +768,10 @@ h2 {
     display: none;
   }
   #game-title { 
-    position: static;
-    left: auto;
-    font-size: 20px;
+    display: none;
+  }
+  #mobile-title { 
+    display: block;
   }
   
   /* FOOTER */

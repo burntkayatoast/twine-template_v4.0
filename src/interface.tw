@@ -3,6 +3,7 @@
 <!-- take note of 'data-init-passage' and 'data-passage' --> 
     <div id="header">
         <div id="game-title" data-passage="header-title"></div>
+        <div id="mobile-title" data-passage="mobile-title-vers"></div>
         <div id="header-links">
             <div id="back">go back.</div>
             <div id="saves">saves.</div>
@@ -27,7 +28,9 @@
 
 
 :: header-title
-Twine Template — $chapter
+Title Here: $chapter — $act
+:: mobile-title-vers
+$chapter — $act
 
 :: mobile_menu 
 <<link "navigation">>
@@ -41,6 +44,7 @@ Twine Template — $chapter
         </div>
     <</dialog>>
 <</link>>
+
 
 :: stats01
 <<link "stats01." "stats01_page">><<script>>console.log('stats01 clicked');<</script>><</link>>

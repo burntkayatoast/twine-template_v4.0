@@ -3,3 +3,6 @@ sugarcube-2:
     dialog:
       name: dialog
       container: true
+    notify:
+      name: notify
+      container: true

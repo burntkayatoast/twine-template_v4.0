@@ -1,6 +1,11 @@
 :: StartMenu
-<<link "stats01." "stats01_page">><</link>>
-<<link "stats02." "stats02_page">><</link>>
+<div class="LTL"><span>00 - Act I</span></div>\
+<div class="chapter-title">of old blood</div>
+<div class="divider"></div>
+
+<<link "<span class='notify-title'>testing the notif btn</span>">>
+  <<notify 4s>>this is a notification<</notify>>
+<</link>>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida scelerisque lacus vel maximus. Quisque in varius tortor. Suspendisse auctor ultrices mauris, a tempor quam bibendum eget. Fusce at faucibus eros, at ullamcorper velit. Maecenas dignissim iaculis justo consequat consequat. Sed fringilla magna id neque scelerisque, eget varius elit mollis. Etiam vel maximus eros, vel feugiat purus.
 
@@ -21,3 +26,14 @@ Sed dictum interdum sem eget ornare. Donec quis egestas odio. Nulla semper, augu
 Integer in lacinia metus. Phasellus ullamcorper tellus justo, a interdum sem placerat id. Suspendisse vestibulum libero sed molestie vehicula. Integer a ante accumsan, efficitur leo id, mattis elit. Duis eu mollis diam, sit amet semper urna. Aliquam mattis congue sapien sed interdum. Vivamus vehicula finibus felis, convallis vulputate augue venenatis eu. Quisque consectetur rhoncus efficitur. Morbi ornare est vel lectus blandit sagittis. Maecenas sed ornare urna.
 
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer condimentum ultricies lorem, sit amet elementum metus laoreet mollis. Aenean pulvinar suscipit tempor. Nullam in euismod ante. Donec et tortor dignissim quam semper finibus. Nulla viverra porttitor diam, et varius lorem gravida in. Donec justo dui, finibus id sagittis ut, molestie at mauris. Etiam non luctus diam. Nullam dictum pharetra ante quis eleifend. Nam suscipit porta sem, interdum ultricies nisi varius efficitur. Praesent sed scelerisque est.
+
+<div class="choice-cont">\
+<<nobr>>
+  <div class="LTL">choose</div>
+  <div class="choicebtn">
+        <<link "<div class='choice'>stat page 1</div>" "stats01_page">><</link>>
+        <<link "<div class='choice'>stat page 2</div>" "stats02_page">><</link>>
+        <<link "<div class='choice'>choice 3</div>">><</link>>
+  </div>
+<</nobr>>
+</div>

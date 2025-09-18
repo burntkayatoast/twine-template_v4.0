@@ -1,3 +1,4 @@
 :: StoryInit
 /* define story variables */
-<<set $chapter to "00 Act I.">>
+<<set $chapter to "00">>
+<<set $act to "Act I">>
