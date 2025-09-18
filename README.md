@@ -1,6 +1,7 @@
 # <p align="center">TWINE TEMPLATE</p>
 ### <p align="center">README</p>
 
+sugarcube documentation: [Motoslave.net](https://www.motoslave.net/sugarcube/2/docs/#guide-installation)
 ---
 A sugarcube formatted template made in twine/twee3 for interactive fictions.
 
